@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}OptimalQuest{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+    }
+
+    .nav-actions {
+      margin-left: 120px;      
+      gap: -100px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .navbar { 
+      margin-left: -40px;
+    }
+
+    .intro {
+      margin-bottom: 1.5rem;
+    }
+
+    .logo {
+      scale: 4;
+    }
+
+    .menu-items {
+      list-style: none;
+      display: flex;
+      gap: 60px; 
+      padding: 0;
+    }
+
+
+    .ec-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .ec-item {
+      background: #f9fafb;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      border: 1px solid #e5e7eb;
+      transition: 0.3s;
+    }
+
+    .ec-item:hover {
+      background: #eef2ff;
+      border-color: #c7d2fe;
+    }
+
+    .ec-item input {
+      margin-right: 0.5rem;
+    }
+
+    .summary {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: #f1f5f9;
+      border-radius: 0.75rem;
+      display: none;
+    }
+
+    .summary h3 {
+      margin-top: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #2563eb;
+      color: white;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #1e40af;
+    }
+    
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 1150px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+}
+
+/* ===== HERO ===== */
+.intro-card {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8, #0f172a);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 1.2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.intro-card h1 {
+  font-size: 2.8rem;
+  margin: 0 0 0.5rem;
+}
+
+.intro-card p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0.5rem auto 0;
+  opacity: 0.9;
+}
+
+/* ===== CAREER CARDS ===== */
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  margin-top: 1rem;
+}
+
+.career-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f1f5f9;
+  position: relative;
+  overflow: hidden;
+}
+
+.career-card h3 {
+  margin-top: 0;
+}
+
+.career-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.15);
+  border-color: #dbeafe;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.8rem;
+}
+
+.gpa-strong { background: linear-gradient(90deg, #2563eb, #1e40af); }
+.gpa-exc { background: linear-gradient(90deg, #9333ea, #6b21a8); }
+
+/* ===== FEATURED COURSES ===== */
+.course-list {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.course-item {
+  background: #ffffff;
+  padding: 1.2rem;
+  border-radius: 0.8rem;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.course-item i {
+  font-size: 1.5rem;
+  color: #2563eb;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.course-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: #bfdbfe;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* ===== ROADMAP ===== */
+.roadmap {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border-left: 4px solid #2563eb;
+  background: #f8fafc;
+  border-radius: 0.5rem;
+}
+
+.roadmap h2 {
+  margin-top: 0;
+}
+
+.roadmap-step {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  font-weight: 500;
+}
+
+.roadmap-step i {
+  font-size: 1.3rem;
+  margin-right: 1rem;
+  color: #2563eb;
+}
+
+/* ===== WHY CHOOSE ===== */
+.why-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 3rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.why-card h2 {
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.why-card li {
+  list-style: none;
+}
+
+.why-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+
+.why-item {
+  background: #f9fafb;
+  border-radius: 0.8rem;
+  padding: 1.2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.why-item i {
+  font-size: 1.5rem;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.why-item:hover {
+  background: #eef2ff;
+  transform: scale(1.05);
+}
+
+/* ===== FUN FACTS ===== */
+.fun-facts {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 3rem;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.fun-facts h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.fun-facts p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+
+.career-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.career-card ul li {
+  margin: 0.4rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fun-facts a {
+  color: #fff;
+  text-decoration: none; 
+}
+
+.fun-facts a:hover {
+  color: #d8851f;
+}
+
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+  </style>
+</head>
+<body>
+<nav class="navbar" style="background:#fff; padding:0.75rem 2rem; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+  <div class="navbar-container" style="display:flex; align-items:center; justify-content:space-between; max-width:1200px; margin:0 auto;">
+
+    <!-- Logo -->
+    <div style="flex-shrink:0; display:flex">
+      <img src="{{ url_for('static', filename='optimalquest_logo.png') }}" 
+           alt="Logo" 
+           class="logo" 
+           style="height:40px; width:auto; object-fit:contain;"/>
+    </div>
+
+    <!-- Menu Items -->
+    <ul class="menu-items" style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('courses') }}">Courses</a></li>
+      <li><a href="{{ url_for('careers') }}">Careers</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+
+    <!-- Auth Actions -->
+<!-- Auth Actions -->
+<div style="display:flex; align-items:center; gap:10px; margin-left:auto; font-size:14px;">
+  {% if session.get('user') %}
+    <span>Welcome, {{ session['user'] }}!</span>
+
+    <!-- Dashboard -->
+    <a href="{{ url_for('dashboard') }}" class="btn dashboard-btn"
+       style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 20px; margin-top: -0px;">
+      <i class="fa-solid fa-house-user"></i>
+      Dashboard
+    </a>
+
+    <!-- Logout -->
+    <a href="{{ url_for('logout') }}" class="btn logout-btn"
+       style="padding:0.4rem 0.8rem; background:#dc3545; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 2px; margin-top: -0px;">
+      <i class="fa-solid fa-right-from-bracket"></i>
+      Logout
+    </a>
+  {% else %}
+    <!-- Login -->
+    <a href="{{ url_for('login') }}" class="btn login-btn"
+       style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
+      <i class="fa-solid fa-right-to-bracket"></i>       
+      Login
+    </a>
+
+    <!-- Register -->
+    <a href="{{ url_for('register') }}" class="btn register-btn"
+       style="padding:0.4rem 0.8rem; background:#007bff; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
+        <i class="fa-solid fa-user-pen"></i>        
+        Register
+    </a>
+  {% endif %}
+</div>
+
+
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="intro-card">
+  <h1><i class="fa-solid fa-paintbrush"></i> Freelance Designer / Developer</h1>
+  <p>Work independently on design and development projects.</p>
+  <a class="btn" href="{{ url_for('quizpage1') }}">Test Your Fit</a>
+</div>
+
+<div class="career-grid">
+  <div class="career-card">
+    <h3><i class="fa-solid fa-briefcase"></i> Job Description</h3>
+    <p>Design and develop digital products, websites, apps, and creative solutions for clients independently.</p>
+  </div>
+  <div class="career-card">
+    <h3><i class="fa-solid fa-chart-line"></i> Job Outlook</h3>
+    <p><strong>Growth:</strong> +15% by 2032</p>
+    <p><strong>New Jobs:</strong> 25,000+</p>
+    <p><strong>Automation Risk:</strong> Medium</p>
+  </div>
+  <div class="career-card">
+    <h3><i class="fa-solid fa-dollar-sign"></i> Salary (U.S.)</h3>
+    <p><strong>Bottom 10%:</strong> $35,000</p>
+    <p><strong>Median:</strong> $75,000</p>
+    <p><strong>Top 10%:</strong> $150,000+</p>
+  </div>
+</div>
+
+<div class="career-grid">
+  <div class="career-card">
+    <h3><i class="fa-solid fa-list-check"></i> Duties</h3>
+    <ul>
+      <li>🎨 Create visual designs, websites, and apps for clients</li>
+      <li>💻 Develop code and implement solutions independently</li>
+      <li>🤝 Communicate with clients about project requirements</li>
+      <li>🧾 Manage project timelines and deliverables</li>
+      <li>📚 Continuously update skills with latest tech and design trends</li>
+    </ul>
+  </div>
+  <div class="career-card">
+    <h3><i class="fa-solid fa-lightbulb"></i> Skills & Qualities</h3>
+    <ul>
+      <li>💡 Creativity and design thinking</li>
+      <li>💻 Programming and development skills</li>
+      <li>📊 Project management and organization</li>
+      <li>🤝 Client communication and negotiation</li>
+      <li>⚡ Problem-solving and adaptability</li>
+    </ul>
+  </div>
+  <div class="career-card">
+    <h3><i class="fa-solid fa-building"></i> Working Conditions</h3>
+    <ul>
+      <li>🏠 Work from home or co-working spaces</li>
+      <li>🕒 Flexible hours, deadlines dependent on clients</li>
+      <li>💻 Use computers and design/development software</li>
+      <li>🤝 Collaborate online with clients or teams</li>
+      <li>📚 Continuous learning and portfolio improvement required</li>
+    </ul>
+  </div>
+</div>
+
+<div class="roadmap">
+  <h2>Career Progression</h2>
+  <div class="roadmap-step"><i class="fa-solid fa-user-graduate"></i> Entry: Junior Designer / Developer</div>
+  <div class="roadmap-step"><i class="fa-solid fa-chart-simple"></i> Mid-Level: Freelance Professional</div>
+  <div class="roadmap-step"><i class="fa-solid fa-chart-line"></i> Senior: Senior Freelance Designer/Developer</div>
+  <div class="roadmap-step"><i class="fa-solid fa-chess-queen"></i> Leadership: Studio Owner / Team Lead</div>
+</div>
+
+<div class="why-card">
+  <h2>Qualifications & Training</h2>
+  <ul>
+    <li>🎓 Bachelor’s degree in Design, Computer Science, or related field</li>
+    <li>💻 Strong portfolio of work</li>
+    <li>📘 Experience with web/app development or digital design tools</li>
+    <li>💡 Self-learning and ongoing skill improvement</li>
+  </ul>
+</div>
+
+<div class="fun-facts" style="color:#fff;">
+  <h2>Sources</h2>
+  <p><a href="https://www.bls.gov/ooh/computer-and-information-technology/web-developers.htm" target="_blank">BLS – Web Developers</a></p>
+</div>
+
+</div>
+{% include 'footer.html' %}
+
+</body>
+</html>

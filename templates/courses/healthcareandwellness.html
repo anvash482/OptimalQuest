@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Healthcare & Wellness - OptimalQuest</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<style>
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+    }
+
+    .nav-actions {
+      margin-left: 120px;      
+      gap: -100px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .navbar { 
+      margin-left: -40px;
+    }
+
+    .intro {
+      margin-bottom: 1.5rem;
+    }
+
+    .logo {
+      scale: 4;
+    }
+
+    .menu-items {
+      list-style: none;
+      display: flex;
+      gap: 60px; 
+      padding: 0;
+    }
+
+
+    .ec-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .ec-item {
+      background: #f9fafb;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      border: 1px solid #e5e7eb;
+      transition: 0.3s;
+    }
+
+    .ec-item:hover {
+      background: #eef2ff;
+      border-color: #c7d2fe;
+    }
+
+    .ec-item input {
+      margin-right: 0.5rem;
+    }
+
+    .summary {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: #f1f5f9;
+      border-radius: 0.75rem;
+      display: none;
+    }
+
+    .summary h3 {
+      margin-top: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #2563eb;
+      color: white;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #1e40af;
+    }
+    
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 1150px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+}
+
+/* ===== HERO ===== */
+.intro-card {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8, #0f172a);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 1.2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.intro-card h1 {
+  font-size: 2.8rem;
+  margin: 0 0 0.5rem;
+}
+
+.intro-card p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0.5rem auto 0;
+  opacity: 0.9;
+}
+
+/* ===== CAREER CARDS ===== */
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  margin-top: 1rem;
+}
+
+.career-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f1f5f9;
+  position: relative;
+  overflow: hidden;
+}
+
+.career-card h3 {
+  margin-top: 0;
+}
+
+.career-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.15);
+  border-color: #dbeafe;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.8rem;
+}
+
+.gpa-strong { background: linear-gradient(90deg, #2563eb, #1e40af); }
+.gpa-exc { background: linear-gradient(90deg, #9333ea, #6b21a8); }
+
+/* ===== FEATURED COURSES ===== */
+.course-list {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.course-item {
+  background: #ffffff;
+  padding: 1.2rem;
+  border-radius: 0.8rem;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.course-item i {
+  font-size: 1.5rem;
+  color: #2563eb;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.course-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: #bfdbfe;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* ===== ROADMAP ===== */
+.roadmap {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border-left: 4px solid #2563eb;
+  background: #f8fafc;
+  border-radius: 0.5rem;
+}
+
+.roadmap h2 {
+  margin-top: 0;
+}
+
+.roadmap-step {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  font-weight: 500;
+}
+
+.roadmap-step i {
+  font-size: 1.3rem;
+  margin-right: 1rem;
+  color: #2563eb;
+}
+
+/* ===== WHY CHOOSE ===== */
+.why-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 3rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.why-card h2 {
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.why-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.why-item {
+  background: #f9fafb;
+  border-radius: 0.8rem;
+  padding: 1.2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.why-item i {
+  font-size: 1.5rem;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.why-item:hover {
+  background: #eef2ff;
+  transform: scale(1.05);
+}
+
+/* ===== FUN FACTS ===== */
+.fun-facts {
+  background: linear-gradient(135deg, #2563eb, #023e8a);
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 3rem;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.fun-facts h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.fun-facts p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+<body>
+<nav class="navbar" style="background:#fff; padding:0.75rem 2rem; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+  <div class="navbar-container" style="display:flex; align-items:center; justify-content:space-between; max-width:1200px; margin:0 auto;">
+
+    <!-- Logo -->
+    <div style="flex-shrink:0; display:flex">
+      <img src="{{ url_for('static', filename='optimalquest_logo.png') }}" 
+           alt="Logo" 
+           class="logo" 
+           style="height:40px; width:auto; object-fit:contain;"/>
+    </div>
+
+    <!-- Menu Items -->
+    <ul class="menu-items" style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('courses') }}">Courses</a></li>
+      <li><a href="{{ url_for('careers') }}">Careers</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+
+    <!-- Auth Actions -->
+<!-- Auth Actions -->
+<div style="display:flex; align-items:center; gap:10px; margin-left:auto; font-size:14px;">
+  {% if session.get('user') %}
+    <span>Welcome, {{ session['user'] }}!</span>
+
+    <!-- Dashboard -->
+    <a href="{{ url_for('dashboard') }}" class="btn dashboard-btn"
+       style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 20px; margin-top: -0px;">
+      <i class="fa-solid fa-house-user"></i>
+      Dashboard
+    </a>
+
+    <!-- Logout -->
+    <a href="{{ url_for('logout') }}" class="btn logout-btn"
+       style="padding:0.4rem 0.8rem; background:#dc3545; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 2px; margin-top: -0px;">
+      <i class="fa-solid fa-right-from-bracket"></i>
+      Logout
+    </a>
+  {% else %}
+    <!-- Login -->
+    <a href="{{ url_for('login') }}" class="btn login-btn"
+       style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
+      <i class="fa-solid fa-right-to-bracket"></i>       
+      Login
+    </a>
+
+    <!-- Register -->
+    <a href="{{ url_for('register') }}" class="btn register-btn"
+       style="padding:0.4rem 0.8rem; background:#007bff; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
+        <i class="fa-solid fa-user-pen"></i>        
+        Register
+    </a>
+  {% endif %}
+</div>
+
+
+  </div>
+</nav>
+
+  <div class="container">
+    <div class="intro-card">
+      <h1><i class="fa-solid fa-heart-pulse"></i> Healthcare & Wellness</h1>
+      <p>Support people’s health — from nursing to health tech innovation, this field is about care, prevention, and improving lives.</p>
+    </div>
+
+    <h2>Careers in Healthcare & Wellness</h2>
+    <div class="career-grid">
+      <div class="career-card">
+        <h3>Nurse</h3>
+        <span class="badge gpa-strong">Typical GPA: 3.65</span>
+        <p><strong>Extracurriculars:</strong> Health volunteering, shadowing</p>
+        <p><strong>Courses:</strong> BSN (Bachelor of Science in Nursing)</p>
+      </div>
+
+      <div class="career-card">
+        <h3>Psychologist</h3>
+        <span class="badge gpa-exc">Typical GPA: 3.80</span>
+        <p><strong>Extracurriculars:</strong> Research, mental health clubs</p>
+        <p><strong>Courses:</strong> Bachelor's in Psychology + PhD/PsyD</p>
+      </div>
+
+      <div class="career-card">
+        <h3>Public Health Specialist</h3>
+        <span class="badge gpa-strong">Typical GPA: 3.75</span>
+        <p><strong>Extracurriculars:</strong> Health campaigns, volunteering</p>
+        <p><strong>Courses:</strong> Public Health, Health Sciences</p>
+      </div>
+
+      <div class="career-card">
+        <h3>Physical Therapist</h3>
+        <span class="badge gpa-strong">Typical GPA: 3.70</span>
+        <p><strong>Extracurriculars:</strong> Athletic training, rehab volunteering</p>
+        <p><strong>Courses:</strong> Kinesiology/Health Science + DPT</p>
+      </div>
+
+      <div class="career-card">
+        <h3>Nutritionist</h3>
+        <span class="badge gpa-strong">Typical GPA: 3.60</span>
+        <p><strong>Extracurriculars:</strong> Nutrition workshops</p>
+        <p><strong>Courses:</strong> Nutrition, Dietetics</p>
+      </div>
+
+      <div class="career-card">
+        <h3>Occupational Therapist</h3>
+        <span class="badge gpa-strong">Typical GPA: 3.70</span>
+        <p><strong>Extracurriculars:</strong> Therapy shadowing</p>
+        <p><strong>Courses:</strong> Master's in Occupational Therapy (MOT)</p>
+      </div>
+
+      <div class="career-card">
+        <h3>Health Tech Innovator</h3>
+        <span class="badge gpa-strong">Typical GPA: 3.75</span>
+        <p><strong>Extracurriculars:</strong> Health app projects, biotech hackathons</p>
+        <p><strong>Courses:</strong> Biomedical Engineering, Bioinformatics</p>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 50px;">Featured Courses</h2>
+    <div class="course-list">
+      <div class="course-item"><i class="fa-solid fa-hospital"></i> BSN (Nursing)</div>
+      <div class="course-item"><i class="fa-solid fa-brain"></i> Psychology</div>
+      <div class="course-item"><i class="fa-solid fa-leaf"></i> Public Health</div>
+      <div class="course-item"><i class="fa-solid fa-heart"></i> Kinesiology</div>
+    </div>
+
+    <div class="roadmap">
+      <h2>Pathway Roadmap</h2>
+      <div class="roadmap-step"><i class="fa-solid fa-hands-helping"></i> Volunteer with health organizations</div>
+      <div class="roadmap-step"><i class="fa-solid fa-book"></i> Study biology, health science, or related fields</div>
+      <div class="roadmap-step"><i class="fa-solid fa-user-doctor"></i> Pursue professional degrees (BSN, DPT, etc.)</div>
+      <div class="roadmap-step"><i class="fa-solid fa-briefcase"></i> Do clinical internships and licensure</div>
+    </div>
+
+    <div class="why-card">
+      <h2>Why Choose Healthcare & Wellness?</h2>
+      <div class="why-list">
+        <div class="why-item"><i class="fa-solid fa-hand-holding-medical"></i> Direct positive impact</div>
+        <div class="why-item"><i class="fa-solid fa-user-nurse"></i> Team-based work</div>
+        <div class="why-item"><i class="fa-solid fa-leaf"></i> Preventative focus</div>
+        <div class="why-item"><i class="fa-solid fa-stethoscope"></i> Diverse clinical & tech roles</div>
+      </div>
+    </div>
+
+    <div class="fun-facts">
+      <h2>Fun Facts</h2>
+      <p>🩺 Nurses are among the most in-demand healthcare professionals worldwide.</p>
+      <p>💡 Health tech bridges engineering and medicine — lots of startup activity here.</p>
+    </div>
+  </div>
+
+  {% include 'footer.html' %}
+</body>
+</html>

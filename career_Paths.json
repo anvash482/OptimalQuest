@@ -1,0 +1,2021 @@
+{
+  "gpa_weighting": {
+    "freshman_year": 0.15,
+    "sophomore_year": 0.30,
+    "junior_year": 0.35,
+    "senior_year": 0.10,
+    "extracurriculars": 0.10
+  },
+  "extracurricular_impact": {
+    "none": 0.00,
+    "basic": 0.02,
+    "moderate": 0.05,
+    "strong": 0.08,
+    "exceptional": 0.10
+  },
+  "career_categories": [
+    {
+      "category": "Tech & Engineering",
+      "careers": [
+        {
+          "name": "Software Developer",
+          "required_weighted_gpa": 3.65,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Coding Projects",
+            "Hackathons",
+            "Open Source Contributions"
+          ],
+          "related_subjects": [
+            "Computer Science",
+            "Math"
+          ],
+          "courses": [
+            "Bachelor's in Computer Science",
+            "Software Engineering"
+          ]
+        },
+        {
+          "name": "Data Scientist",
+          "required_weighted_gpa": 3.80,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Kaggle Projects",
+            "Data Competitions",
+            "Machine Learning Research"
+          ],
+          "related_subjects": [
+            "Math",
+            "Computer Science",
+            "Statistics"
+          ],
+          "courses": [
+            "Bachelor's in Data Science",
+            "BS in Statistics",
+            "BS in Computer Science"
+          ]
+        },
+        {
+          "name": "Machine Learning Engineer",
+          "required_weighted_gpa": 3.85,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Deep Learning Projects",
+            "AI/ML Hackathons",
+            "Advanced Coding Club"
+          ],
+          "related_subjects": [
+            "Math",
+            "Computer Science",
+            "Physics"
+          ],
+          "courses": [
+            "Bachelor's in Artificial Intelligence",
+            "Computer Science"
+          ]
+        },
+        {
+          "name": "Frontend Developer",
+          "required_weighted_gpa": 3.60,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "Web Design Projects",
+            "App Building",
+            "UI Internships"
+          ],
+          "related_subjects": [
+            "Computer Science",
+            "Design"
+          ],
+          "courses": [
+            "Bachelor's in Computer Science",
+            "Web Development Bootcamp"
+          ]
+        },
+        {
+          "name": "Game Developer",
+          "required_weighted_gpa": 3.65,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Unity/Unreal Projects",
+            "Game Jams",
+            "CS Club"
+          ],
+          "related_subjects": [
+            "Computer Science",
+            "Math",
+            "Art"
+          ],
+          "courses": [
+            "Bachelor's in Game Development",
+            "Bachelor's in Computer Science"
+          ]
+        },
+        {
+          "name": "App Developer",
+          "required_weighted_gpa": 3.60,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "App Design Projects",
+            "Mobile Hackathons",
+            "Freelance Apps"
+          ],
+          "related_subjects": [
+            "Computer Science",
+            "Design"
+          ],
+          "courses": [
+            "Bachelor's in Software Engineering",
+            "Bachelor's in Mobile Computing"
+          ]
+        },
+        {
+          "name": "Cybersecurity Analyst",
+          "required_weighted_gpa": 3.70,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "CTF Competitions",
+            "Cybersecurity Club",
+            "Ethical Hacking Labs"
+          ],
+          "related_subjects": [
+            "Computer Science",
+            "IT",
+            "Math"
+          ],
+          "courses": [
+            "Bachelor's in Cybersecurity",
+            "Information Technology"
+          ]
+        },
+        {
+          "name": "AI Researcher",
+          "required_weighted_gpa": 3.90,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "AI Research",
+            "Math/CS Research",
+            "AI Competitions"
+          ],
+          "related_subjects": [
+            "Computer Science",
+            "Math",
+            "Cognitive Science"
+          ],
+          "courses": [
+            "Bachelor's in AI",
+            "Computer Science",
+            "Cognitive Science"
+          ]
+        },
+        {
+          "name": "UX/UI Designer",
+          "required_weighted_gpa": 3.50,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "App Design Projects",
+            "Graphic Design Club",
+            "Web Design Internships"
+          ],
+          "related_subjects": [
+            "Art",
+            "Computer Science",
+            "Psychology"
+          ],
+          "courses": [
+            "Bachelor's in UX/UI Design",
+            "Human-Computer Interaction"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Data & Analysis",
+      "careers": [
+        {
+          "name": "Data Analyst",
+          "required_weighted_gpa": 3.70,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Kaggle Projects",
+            "Spreadsheet/Data Tool Practice",
+            "Internships with Analysts"
+          ],
+          "related_subjects": [
+            "Math",
+            "Computer Science",
+            "Statistics"
+          ],
+          "courses": [
+            "Bachelor's in Data Science",
+            "Information Systems",
+            "Business Analytics"
+          ]
+        },
+        {
+          "name": "Business Intelligence Analyst",
+          "required_weighted_gpa": 3.75,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Business Club",
+            "Data Visualization Projects",
+            "Market Research Projects"
+          ],
+          "related_subjects": [
+            "Economics",
+            "Math",
+            "Computer Science"
+          ],
+          "courses": [
+            "Bachelor's in Business Analytics",
+            "Information Systems",
+            "Econometrics"
+          ]
+        },
+        {
+          "name": "Statistician",
+          "required_weighted_gpa": 3.80,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Math Competitions",
+            "Statistical Research",
+            "Advanced Data Projects"
+          ],
+          "related_subjects": [
+            "Statistics",
+            "Math",
+            "Computer Science"
+          ],
+          "courses": [
+            "Bachelor's in Statistics",
+            "Mathematics"
+          ]
+        },
+        {
+          "name": "Financial Analyst",
+          "required_weighted_gpa": 3.75,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Stock Market Club",
+            "Finance Internships",
+            "Excel + Financial Modeling Practice"
+          ],
+          "related_subjects": [
+            "Economics",
+            "Math",
+            "Finance"
+          ],
+          "courses": [
+            "Bachelor's in Finance",
+            "Economics",
+            "Accounting"
+          ]
+        },
+        {
+          "name": "Market Research Analyst",
+          "required_weighted_gpa": 3.65,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "Survey Projects",
+            "Marketing Club",
+            "Consumer Behavior Research"
+          ],
+          "related_subjects": [
+            "Psychology",
+            "Statistics",
+            "Marketing"
+          ],
+          "courses": [
+            "Bachelor's in Marketing",
+            "Market Research",
+            "Behavioral Economics"
+          ]
+        },
+        {
+          "name": "Operations Analyst",
+          "required_weighted_gpa": 3.70,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Logistics Projects",
+            "Case Competitions",
+            "Data Tools Internships"
+          ],
+          "related_subjects": [
+            "Industrial Engineering",
+            "Math",
+            "Business"
+          ],
+          "courses": [
+            "Bachelor's in Operations Research",
+            "Industrial Engineering",
+            "Supply Chain"
+          ]
+        },
+        {
+          "name": "Actuary",
+          "required_weighted_gpa": 3.85,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Math Olympiads",
+            "Actuarial Exam Prep",
+            "Risk Modeling Projects"
+          ],
+          "related_subjects": [
+            "Math",
+            "Finance",
+            "Statistics"
+          ],
+          "courses": [
+            "Bachelor's in Actuarial Science",
+            "Math",
+            "Finance"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Creative & Design",
+      "careers": [
+        {
+          "name": "Graphic Designer",
+          "required_weighted_gpa": 3.40,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "Poster and Logo Design",
+            "Art/Design Club",
+            "Freelance or Internship Projects"
+          ],
+          "related_subjects": [
+            "Art",
+            "Design",
+            "Technology"
+          ],
+          "courses": [
+            "Bachelor's in Graphic Design",
+            "Visual Communication",
+            "Digital Media Arts"
+          ]
+        },
+        {
+          "name": "UX Designer",
+          "required_weighted_gpa": 3.50,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "App/Website Redesign Projects",
+            "Design Club or HCI Club",
+            "UX Internships"
+          ],
+          "related_subjects": [
+            "Psychology",
+            "Design",
+            "Computer Science"
+          ],
+          "courses": [
+            "Bachelor's in UX Design",
+            "Human-Computer Interaction",
+            "Psychology + Design Minor"
+          ]
+        },
+        {
+          "name": "UI Designer",
+          "required_weighted_gpa": 3.45,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "Mobile/Web UI Projects",
+            "Design Hackathons",
+            "Internships"
+          ],
+          "related_subjects": [
+            "Design",
+            "Computer Science",
+            "Art"
+          ],
+          "courses": [
+            "Bachelor's in Interface Design",
+            "UX/UI Design",
+            "Interactive Media"
+          ]
+        },
+        {
+          "name": "Animator",
+          "required_weighted_gpa": 3.50,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Short Film or Animation Projects",
+            "Animation Club",
+            "2D/3D Design Freelancing"
+          ],
+          "related_subjects": [
+            "Art",
+            "Film",
+            "Computer Graphics"
+          ],
+          "courses": [
+            "Bachelor's in Animation",
+            "Digital Arts",
+            "Media & Film Studies"
+          ]
+        },
+        {
+          "name": "Video Editor",
+          "required_weighted_gpa": 3.40,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "YouTube Channel or Short Film Edits",
+            "Film/Media Club",
+            "Video Editing Freelance Gigs"
+          ],
+          "related_subjects": [
+            "Film",
+            "Media Studies",
+            "Technology"
+          ],
+          "courses": [
+            "Bachelor's in Film & Media",
+            "Video Production",
+            "Digital Media Arts"
+          ]
+        },
+        {
+          "name": "Art Director",
+          "required_weighted_gpa": 3.70,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Leading Creative Teams",
+            "Art Exhibits or Portfolio Development",
+            "Internship at Creative Studios"
+          ],
+          "related_subjects": [
+            "Art",
+            "Design",
+            "Communication"
+          ],
+          "courses": [
+            "Bachelor's in Fine Arts",
+            "Creative Direction",
+            "Design Management"
+          ]
+        },
+        {
+          "name": "Creative Technologist",
+          "required_weighted_gpa": 3.60,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Interactive Design Projects",
+            "Coding + Design Hackathons",
+            "Creative Coding Club"
+          ],
+          "related_subjects": [
+            "Design",
+            "Computer Science",
+            "Media"
+          ],
+          "courses": [
+            "Bachelor's in Creative Technology",
+            "New Media Arts",
+            "Design + Computer Science"
+          ]
+        },
+        {
+          "name": "Industrial Designer",
+          "required_weighted_gpa": 3.60,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Product Design Projects",
+            "3D Modeling Club",
+            "Maker Lab or Engineering Club"
+          ],
+          "related_subjects": [
+            "Engineering",
+            "Art",
+            "Design"
+          ],
+          "courses": [
+            "Bachelor's in Industrial Design",
+            "Product Design",
+            "Mechanical Design"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Communication & Writing",
+      "careers": [
+        {
+          "name": "Content Writer",
+          "required_weighted_gpa": 3.50,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "Blogging",
+            "Writing for School Magazine",
+            "Freelance Writing"
+          ],
+          "related_subjects": [
+            "English",
+            "Journalism",
+            "Media Studies"
+          ],
+          "courses": [
+            "Bachelor's in English",
+            "Creative Writing",
+            "Journalism"
+          ]
+        },
+        {
+          "name": "Copywriter",
+          "required_weighted_gpa": 3.55,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Marketing Projects",
+            "Ad/Copywriting Competitions",
+            "Internships at Agencies"
+          ],
+          "related_subjects": [
+            "English",
+            "Marketing",
+            "Psychology"
+          ],
+          "courses": [
+            "Bachelor's in Marketing",
+            "Advertising",
+            "Communications"
+          ]
+        },
+        {
+          "name": "Journalist",
+          "required_weighted_gpa": 3.60,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "School Newspaper",
+            "Interview Projects",
+            "Writing Competitions"
+          ],
+          "related_subjects": [
+            "English",
+            "History",
+            "Political Science"
+          ],
+          "courses": [
+            "Bachelor's in Journalism",
+            "Mass Communication",
+            "Media Studies"
+          ]
+        },
+        {
+          "name": "Social Media Manager",
+          "required_weighted_gpa": 3.55,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Managing School Club Accounts",
+            "Personal/Brand Page Building",
+            "Digital Marketing Internship"
+          ],
+          "related_subjects": [
+            "Marketing",
+            "Communications",
+            "Psychology"
+          ],
+          "courses": [
+            "Bachelor's in Digital Marketing",
+            "Media & Communications",
+            "Marketing"
+          ]
+        },
+        {
+          "name": "Technical Writer",
+          "required_weighted_gpa": 3.65,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Tutorial or Documentation Writing",
+            "Coding + Writing Projects",
+            "Internship in Tech Content"
+          ],
+          "related_subjects": [
+            "Computer Science",
+            "English",
+            "Engineering"
+          ],
+          "courses": [
+            "Bachelor's in Technical Communication",
+            "Computer Science + English Minor"
+          ]
+        },
+        {
+          "name": "PR Specialist",
+          "required_weighted_gpa": 3.60,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Event Planning",
+            "Public Speaking Events",
+            "Internships in PR Firms"
+          ],
+          "related_subjects": [
+            "Communications",
+            "Marketing",
+            "Sociology"
+          ],
+          "courses": [
+            "Bachelor's in Public Relations",
+            "Communications",
+            "Media Studies"
+          ]
+        },
+        {
+          "name": "Podcast Producer",
+          "required_weighted_gpa": 3.50,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "Running a Podcast",
+            "Audio Editing Projects",
+            "Speech/Debate Club"
+          ],
+          "related_subjects": [
+            "Media Studies",
+            "Journalism",
+            "English"
+          ],
+          "courses": [
+            "Bachelor's in Broadcasting",
+            "Media Production",
+            "Communications"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Research & Academia",
+      "careers": [
+        {
+          "name": "Academic Researcher",
+          "required_weighted_gpa": 3.90,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Research Projects with Professors",
+            "Independent Research Papers",
+            "Science Fairs or Competitions"
+          ],
+          "related_subjects": [
+            "Science",
+            "Math",
+            "English"
+          ],
+          "courses": [
+            "Bachelor's in Any Field + PhD",
+            "Undergraduate Research Programs"
+          ]
+        },
+        {
+          "name": "Scientist (Physics, Biology, etc.)",
+          "required_weighted_gpa": 3.85,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Science Olympiads",
+            "Lab Internships",
+            "Advanced Coursework or Research"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Physics",
+            "Chemistry"
+          ],
+          "courses": [
+            "Bachelor's in a Science Field",
+            "BS/MS + PhD in Subject Area"
+          ]
+        },
+        {
+          "name": "University Professor",
+          "required_weighted_gpa": 3.90,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Tutoring or Teaching",
+            "Research Experience",
+            "Academic Clubs"
+          ],
+          "related_subjects": [
+            "Any Major",
+            "Education",
+            "English"
+          ],
+          "courses": [
+            "Bachelor's + Master's + PhD",
+            "Teaching Fellowship Programs"
+          ]
+        },
+        {
+          "name": "Policy Analyst",
+          "required_weighted_gpa": 3.75,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Debate Team",
+            "Model UN",
+            "Research on Laws/Public Policy"
+          ],
+          "related_subjects": [
+            "Political Science",
+            "Economics",
+            "Sociology"
+          ],
+          "courses": [
+            "Bachelor's in Public Policy",
+            "Political Science",
+            "Law or Government"
+          ]
+        },
+        {
+          "name": "Environmental Researcher",
+          "required_weighted_gpa": 3.70,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Climate or Environmental Projects",
+            "Field Research",
+            "Eco Clubs or Science Competitions"
+          ],
+          "related_subjects": [
+            "Environmental Science",
+            "Biology",
+            "Geography"
+          ],
+          "courses": [
+            "Bachelor's in Environmental Science",
+            "Ecology",
+            "Earth Science"
+          ]
+        },
+        {
+          "name": "Human Behavior Specialist (Psychology)",
+          "required_weighted_gpa": 3.75,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Psych Research Projects",
+            "Internships at Labs",
+            "Science/Neuro Clubs"
+          ],
+          "related_subjects": [
+            "Psychology",
+            "Biology",
+            "Sociology"
+          ],
+          "courses": [
+            "Bachelor's in Psychology",
+            "Neuroscience",
+            "Cognitive Science"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Business & Entrepreneurship",
+      "careers": [
+        {
+          "name": "Entrepreneur / Startup Founder",
+          "required_weighted_gpa": 3.50,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Personal Startup or App Launch",
+            "Pitch Competitions",
+            "Business Club Leadership"
+          ],
+          "related_subjects": [
+            "Business",
+            "Economics",
+            "Computer Science"
+          ],
+          "courses": [
+            "Bachelor's in Business Administration",
+            "Entrepreneurship Programs",
+            "Computer Science + Business Minor"
+          ]
+        },
+        {
+          "name": "Product Manager",
+          "required_weighted_gpa": 3.75,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Product or App Development",
+            "Startup Internships",
+            "Design Thinking Competitions"
+          ],
+          "related_subjects": [
+            "Business",
+            "Computer Science",
+            "Psychology"
+          ],
+          "courses": [
+            "Bachelor's in Information Systems",
+            "Product Management Bootcamp",
+            "Business + CS Programs"
+          ]
+        },
+        {
+          "name": "Marketing Manager",
+          "required_weighted_gpa": 3.60,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Social Media Campaigns",
+            "Marketing Club",
+            "Ad Creation or Branding Projects"
+          ],
+          "related_subjects": [
+            "Marketing",
+            "Psychology",
+            "Media"
+          ],
+          "courses": [
+            "Bachelor's in Marketing",
+            "Business Administration",
+            "Digital Marketing"
+          ]
+        },
+        {
+          "name": "Management Consultant",
+          "required_weighted_gpa": 3.85,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Case Competitions",
+            "Economics or Strategy Research",
+            "Consulting Club or Internships"
+          ],
+          "related_subjects": [
+            "Economics",
+            "Business",
+            "Math"
+          ],
+          "courses": [
+            "Bachelor's in Business",
+            "Economics",
+            "MBA (Optional but Common)"
+          ]
+        },
+        {
+          "name": "Business Analyst",
+          "required_weighted_gpa": 3.70,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Data Projects for Business Use",
+            "Business/Data Clubs",
+            "Small Business Internships"
+          ],
+          "related_subjects": [
+            "Economics",
+            "Statistics",
+            "Business"
+          ],
+          "courses": [
+            "Bachelor's in Business Analytics",
+            "Information Systems",
+            "Econometrics"
+          ]
+        },
+        {
+          "name": "Sales Strategist",
+          "required_weighted_gpa": 3.60,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "Student Business",
+            "Cold Email Projects",
+            "Sales Internships"
+          ],
+          "related_subjects": [
+            "Business",
+            "Psychology",
+            "Marketing"
+          ],
+          "courses": [
+            "Bachelor's in Business Administration",
+            "Sales Management",
+            "Marketing"
+          ]
+        },
+        {
+          "name": "E-Commerce Manager",
+          "required_weighted_gpa": 3.60,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Running Shopify/Amazon Stores",
+            "Marketing & SEO Projects",
+            "Entrepreneurship Club"
+          ],
+          "related_subjects": [
+            "Marketing",
+            "Computer Science",
+            "Business"
+          ],
+          "courses": [
+            "Bachelor's in E-Commerce",
+            "Marketing",
+            "Digital Business"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Social Impact & Nonprofit",
+      "careers": [
+        {
+          "name": "Social Worker",
+          "required_weighted_gpa": 3.60,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Volunteering with Vulnerable Groups",
+            "Community Service Projects",
+            "Social Justice Clubs"
+          ],
+          "related_subjects": [
+            "Psychology",
+            "Sociology",
+            "Social Work"
+          ],
+          "courses": [
+            "Bachelor's in Social Work (BSW)",
+            "Sociology",
+            "Psychology"
+          ]
+        },
+        {
+          "name": "NGO Project Manager",
+          "required_weighted_gpa": 3.65,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Leadership in Nonprofits",
+            "Organizing Fundraisers",
+            "Youth-Led Initiatives"
+          ],
+          "related_subjects": [
+            "Public Administration",
+            "Business",
+            "Sociology"
+          ],
+          "courses": [
+            "Bachelor's in Nonprofit Management",
+            "Public Policy",
+            "International Development"
+          ]
+        },
+        {
+          "name": "Public Health Specialist",
+          "required_weighted_gpa": 3.75,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Health Awareness Campaigns",
+            "Medical Volunteering",
+            "Health Education Projects"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Public Health",
+            "Sociology"
+          ],
+          "courses": [
+            "Bachelor's in Public Health",
+            "Health Sciences",
+            "Epidemiology"
+          ]
+        },
+        {
+          "name": "Education Program Manager",
+          "required_weighted_gpa": 3.70,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Tutoring Underserved Students",
+            "Education Access Projects",
+            "Nonprofit Education Roles"
+          ],
+          "related_subjects": [
+            "Education",
+            "Sociology",
+            "Psychology"
+          ],
+          "courses": [
+            "Bachelor's in Education Policy",
+            "Educational Leadership",
+            "Development Studies"
+          ]
+        },
+        {
+          "name": "Community Organizer",
+          "required_weighted_gpa": 3.60,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Advocacy Campaigns",
+            "Protests or Social Movements",
+            "Civic Engagement Projects"
+          ],
+          "related_subjects": [
+            "Political Science",
+            "Sociology",
+            "Anthropology"
+          ],
+          "courses": [
+            "Bachelor's in Community Development",
+            "Political Science",
+            "Social Work"
+          ]
+        },
+        {
+          "name": "Mental Health Counselor",
+          "required_weighted_gpa": 3.80,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Peer Counseling",
+            "Mental Health Awareness Campaigns",
+            "Psychology Research or Clubs"
+          ],
+          "related_subjects": [
+            "Psychology",
+            "Biology",
+            "Sociology"
+          ],
+          "courses": [
+            "Bachelor's in Psychology",
+            "Mental Health Counseling",
+            "Social Work"
+          ]
+        },
+        {
+          "name": "Youth Mentor",
+          "required_weighted_gpa": 3.55,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "Mentorship Programs",
+            "Volunteering with Teens or Kids",
+            "School Mentoring Clubs"
+          ],
+          "related_subjects": [
+            "Education",
+            "Psychology",
+            "Sociology"
+          ],
+          "courses": [
+            "Bachelor's in Youth Development",
+            "Education",
+            "Child Psychology"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Healthcare & Wellness",
+      "careers": [
+        {
+          "name": "Nurse",
+          "required_weighted_gpa": 3.65,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Health Club Volunteering",
+            "Shadowing Nurses",
+            "Community Health Projects"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Health Sciences"
+          ],
+          "courses": [
+            "Bachelor of Science in Nursing (BSN)"
+          ]
+        },
+        {
+          "name": "Psychologist",
+          "required_weighted_gpa": 3.80,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Psychology Research",
+            "Mental Health Clubs",
+            "Peer Counseling"
+          ],
+          "related_subjects": [
+            "Psychology",
+            "Biology",
+            "Sociology"
+          ],
+          "courses": [
+            "Bachelor's in Psychology + PhD or PsyD"
+          ]
+        },
+        {
+          "name": "Public Health Specialist",
+          "required_weighted_gpa": 3.75,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Health Awareness Campaigns",
+            "Medical Volunteering",
+            "Health Education Projects"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Public Health",
+            "Sociology"
+          ],
+          "courses": [
+            "Bachelor's in Public Health",
+            "Health Sciences"
+          ]
+        },
+        {
+          "name": "Physical Therapist",
+          "required_weighted_gpa": 3.70,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Athletic Training Internships",
+            "Volunteering in Rehab Centers",
+            "Sports Clubs"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Kinesiology",
+            "Health"
+          ],
+          "courses": [
+            "Bachelor's in Kinesiology or Health Science + DPT"
+          ]
+        },
+        {
+          "name": "Nutritionist",
+          "required_weighted_gpa": 3.60,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "Diet/Nutrition Blogs or Workshops",
+            "Health Clubs",
+            "Community Nutrition Projects"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Health",
+            "Chemistry"
+          ],
+          "courses": [
+            "Bachelor's in Nutrition",
+            "Dietetics"
+          ]
+        },
+        {
+          "name": "Occupational Therapist",
+          "required_weighted_gpa": 3.70,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "Helping with Special Needs Programs",
+            "Therapy Shadowing",
+            "Health Clubs"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Psychology",
+            "Health Sciences"
+          ],
+          "courses": [
+            "Bachelor's + Master's in Occupational Therapy (MOT)"
+          ]
+        },
+        {
+          "name": "Mental Health Counselor",
+          "required_weighted_gpa": 3.70,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Peer Support Work",
+            "Counseling Volunteering",
+            "Psychology Club"
+          ],
+          "related_subjects": [
+            "Psychology",
+            "Sociology",
+            "Biology"
+          ],
+          "courses": [
+            "Bachelor's + Master's in Counseling or Psychology"
+          ]
+        },
+        {
+          "name": "Health Tech Innovator",
+          "required_weighted_gpa": 3.75,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Tech + Health App Projects",
+            "Biotech Hackathons",
+            "Internships at Health Startups"
+          ],
+          "related_subjects": [
+            "Computer Science",
+            "Biology",
+            "Engineering"
+          ],
+          "courses": [
+            "Bachelor's in Biomedical Engineering",
+            "Bioinformatics"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Medical Specializations",
+      "careers": [
+        {
+          "name": "General Practitioner (Family Physician)",
+          "required_weighted_gpa": 3.90,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Volunteering at clinics",
+            "First Aid/CPR Certification",
+            "Pre-med club"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Chemistry",
+            "Health Science"
+          ],
+          "courses": [
+            "Bachelor's in Pre-Med + MD (Family Medicine Residency)"
+          ]
+        },
+        {
+          "name": "Pediatrician",
+          "required_weighted_gpa": 3.92,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Volunteering with kids",
+            "Hospital internships",
+            "Childcare work"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Child Psychology",
+            "Health Science"
+          ],
+          "courses": [
+            "Bachelor's in Pre-Med + MD (Pediatrics Residency)"
+          ]
+        },
+        {
+          "name": "Cardiologist",
+          "required_weighted_gpa": 3.95,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Cardiology Shadowing",
+            "Heart Health Campaigns",
+            "Research"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Chemistry",
+            "Physics"
+          ],
+          "courses": [
+            "Bachelor's + MD + Internal Medicine Residency + Cardiology Fellowship"
+          ]
+        },
+        {
+          "name": "Neurologist",
+          "required_weighted_gpa": 3.96,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Neuroscience Research",
+            "Hospital Shadowing",
+            "Psych Club"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Neuroscience",
+            "Psychology"
+          ],
+          "courses": [
+            "Bachelor's + MD + Neurology Residency"
+          ]
+        },
+        {
+          "name": "Dermatologist",
+          "required_weighted_gpa": 3.93,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Skin Health Awareness",
+            "Shadowing Dermatologists",
+            "Science Fair Projects"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Chemistry"
+          ],
+          "courses": [
+            "Bachelor's + MD + Dermatology Residency"
+          ]
+        },
+        {
+          "name": "Orthopedic Surgeon",
+          "required_weighted_gpa": 3.95,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Sports Medicine Volunteering",
+            "Surgical Observation",
+            "Anatomy Study"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Physics",
+            "Kinesiology"
+          ],
+          "courses": [
+            "Bachelor's + MD + Orthopedic Surgery Residency"
+          ]
+        },
+        {
+          "name": "Oncologist",
+          "required_weighted_gpa": 3.94,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Cancer Fundraisers",
+            "Medical Research",
+            "Volunteering in Cancer Wards"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Chemistry",
+            "Health"
+          ],
+          "courses": [
+            "Bachelor's + MD + Internal Medicine Residency + Oncology Fellowship"
+          ]
+        },
+        {
+          "name": "Psychiatrist",
+          "required_weighted_gpa": 3.90,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Mental Health Club",
+            "Peer Counseling",
+            "Psychology Research"
+          ],
+          "related_subjects": [
+            "Psychology",
+            "Biology",
+            "Neuroscience"
+          ],
+          "courses": [
+            "Bachelor's + MD + Psychiatry Residency"
+          ]
+        },
+        {
+          "name": "Ophthalmologist",
+          "required_weighted_gpa": 3.92,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Vision Screenings",
+            "Eye Health Campaigns",
+            "Hospital Shadowing"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Physics"
+          ],
+          "courses": [
+            "Bachelor's + MD + Ophthalmology Residency"
+          ]
+        },
+        {
+          "name": "Surgeon (General)",
+          "required_weighted_gpa": 3.96,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Surgical Shadowing",
+            "Science Fairs",
+            "Anatomy Dissection"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Chemistry",
+            "Physics"
+          ],
+          "courses": [
+            "Bachelor's + MD + General Surgery Residency"
+          ]
+        },
+        {
+          "name": "Radiologist",
+          "required_weighted_gpa": 3.94,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Hospital Tech Internships",
+            "Medical Imaging Research",
+            "Physics Club"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Physics",
+            "Computer Science"
+          ],
+          "courses": [
+            "Bachelor's + MD + Radiology Residency"
+          ]
+        },
+        {
+          "name": "Pathologist",
+          "required_weighted_gpa": 3.92,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Medical Labs",
+            "Autopsy Observation",
+            "Research"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Chemistry",
+            "Microbiology"
+          ],
+          "courses": [
+            "Bachelor's + MD + Pathology Residency"
+          ]
+        },
+        {
+          "name": "Obstetrician-Gynecologist (OB-GYN)",
+          "required_weighted_gpa": 3.93,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Women's Health Volunteering",
+            "Shadowing OB-GYNs",
+            "Health Campaigns"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Health",
+            "Sociology"
+          ],
+          "courses": [
+            "Bachelor's + MD + OB-GYN Residency"
+          ]
+        },
+        {
+          "name": "Anesthesiologist",
+          "required_weighted_gpa": 3.95,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Surgery Shadowing",
+            "Chemistry Projects",
+            "Hospital Internships"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Chemistry",
+            "Physics"
+          ],
+          "courses": [
+            "Bachelor's + MD + Anesthesiology Residency"
+          ]
+        },
+        {
+          "name": "Emergency Medicine Doctor",
+          "required_weighted_gpa": 3.90,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "ER Volunteering",
+            "First Aid Certification",
+            "Crisis Response Training"
+          ],
+          "related_subjects": [
+            "Biology",
+            "Health Science"
+          ],
+          "courses": [
+            "Bachelor's + MD + Emergency Medicine Residency"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Education & Training",
+      "careers": [
+        {
+          "name": "School Teacher",
+          "required_weighted_gpa": 3.60,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Tutoring or TA roles",
+            "Education clubs",
+            "Volunteering at schools or camps"
+          ],
+          "related_subjects": [
+            "Education",
+            "Psychology",
+            "English"
+          ],
+          "courses": [
+            "Bachelor's in Education",
+            "Credential Program (Teaching License)"
+          ]
+        },
+        {
+          "name": "Curriculum Designer",
+          "required_weighted_gpa": 3.70,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Creating lesson plans",
+            "Tutoring or leading workshops",
+            "Interning with EdTech or curriculum startups"
+          ],
+          "related_subjects": [
+            "Education",
+            "Psychology",
+            "Instructional Design"
+          ],
+          "courses": [
+            "Bachelor's in Education",
+            "Master's in Curriculum & Instruction"
+          ]
+        },
+        {
+          "name": "College Counselor",
+          "required_weighted_gpa": 3.65,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "Mentorship programs",
+            "Peer counseling",
+            "Volunteering in student support roles"
+          ],
+          "related_subjects": [
+            "Psychology",
+            "Education",
+            "Sociology"
+          ],
+          "courses": [
+            "Bachelor's in Psychology or Education",
+            "Master's in Counseling or Education"
+          ]
+        },
+        {
+          "name": "Online Course Creator",
+          "required_weighted_gpa": 3.60,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Creating YouTube or Skillshare content",
+            "Freelance teaching or tutoring",
+            "Instructional design projects"
+          ],
+          "related_subjects": [
+            "Education",
+            "Technology",
+            "Design"
+          ],
+          "courses": [
+            "Bachelor's in Instructional Design",
+            "Bachelor's in Education or EdTech"
+          ]
+        },
+        {
+          "name": "Education Technologist",
+          "required_weighted_gpa": 3.70,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Building EdTech apps",
+            "Interning with online learning companies",
+            "Creating digital teaching tools"
+          ],
+          "related_subjects": [
+            "Computer Science",
+            "Education",
+            "Design"
+          ],
+          "courses": [
+            "Bachelor's in Education Technology",
+            "Bachelor's in Instructional Design or CS"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Lifestyle & Independent Careers",
+      "careers": [
+        {
+          "name": "Freelance Designer / Developer",
+          "required_weighted_gpa": 3.50,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Freelance or client-based projects",
+            "Online portfolio building",
+            "Participating in design/dev communities"
+          ],
+          "related_subjects": [
+            "Computer Science",
+            "Art",
+            "Design"
+          ],
+          "courses": [
+            "Bachelor's in Graphic Design",
+            "Bachelor's in Computer Science",
+            "Online Bootcamps or Certifications"
+          ]
+        },
+        {
+          "name": "YouTuber / Content Creator",
+          "required_weighted_gpa": 3.40,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "Running a YouTube channel or podcast",
+            "Social media strategy projects",
+            "Video editing or storytelling practice"
+          ],
+          "related_subjects": [
+            "Media",
+            "Marketing",
+            "Communication"
+          ],
+          "courses": [
+            "Bachelor's in Media Studies",
+            "Digital Marketing Certifications"
+          ]
+        },
+        {
+          "name": "Digital Nomad / Remote Worker",
+          "required_weighted_gpa": 3.55,
+          "preferred_extracurricular": "strong",
+          "suggested_extracurriculars": [
+            "Remote internships",
+            "Freelancing",
+            "Building personal productivity systems"
+          ],
+          "related_subjects": [
+            "Business",
+            "Technology",
+            "Marketing"
+          ],
+          "courses": [
+            "Bachelor's in Business or CS",
+            "Remote Work Readiness Courses"
+          ]
+        },
+        {
+          "name": "Author",
+          "required_weighted_gpa": 3.70,
+          "preferred_extracurricular": "exceptional",
+          "suggested_extracurriculars": [
+            "Creative writing clubs",
+            "Publishing blogs or books",
+            "Literature competitions"
+          ],
+          "related_subjects": [
+            "English",
+            "Literature",
+            "Writing"
+          ],
+          "courses": [
+            "Bachelor's in English or Creative Writing"
+          ]
+        },
+        {
+          "name": "Life Coach",
+          "required_weighted_gpa": 3.50,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "Peer mentoring",
+            "Leadership clubs",
+            "Psychology or self-development workshops"
+          ],
+          "related_subjects": [
+            "Psychology",
+            "Sociology",
+            "Health"
+          ],
+          "courses": [
+            "Bachelor's in Psychology",
+            "Life Coach Certification"
+          ]
+        },
+        {
+          "name": "Travel Blogger",
+          "required_weighted_gpa": 3.20,
+          "preferred_extracurricular": "moderate",
+          "suggested_extracurriculars": [
+            "Running a blog or travel page",
+            "Photography and writing projects",
+            "Social media storytelling"
+          ],
+          "related_subjects": [
+            "Journalism",
+            "Media",
+            "Communication"
+          ],
+          "courses": [
+            "Bachelor's in Journalism",
+            "Digital Content Creation Courses"
+          ]
+        },
+        {
+          "quizzes": {
+            "questions": [
+              {
+                "question": "How do you usually spend your free time?",
+                "options": [
+                  {
+                    "answer": "Reading or learning something new",
+                    "trait": "Thinker"
+                  },
+                  {
+                    "answer": "Creating art, music, or writing",
+                    "trait": "Creator"
+                  },
+                  {
+                    "answer": "Hanging out with friends or family",
+                    "trait": "Helper"
+                  },
+                  {
+                    "answer": "Playing sports or doing outdoor activities",
+                    "trait": "Leader"
+                  }
+                ]
+              },
+              {
+                "question": "When you face a challenge, what’s your first reaction?",
+                "options": [
+                  {
+                    "answer": "Break it down logically and solve it",
+                    "trait": "Thinker"
+                  },
+                  {
+                    "answer": "Think outside the box for creative solutions",
+                    "trait": "Creator"
+                  },
+                  {
+                    "answer": "Ask for advice or talk it out",
+                    "trait": "Helper"
+                  },
+                  {
+                    "answer": "Take quick action and handle it head-on",
+                    "trait": "Leader"
+                  }
+                ]
+              },
+              {
+                "question": "Which describes your energy level best?",
+                "options": [
+                  {
+                    "answer": "Calm and steady",
+                    "trait": "Thinker"
+                  },
+                  {
+                    "answer": "Imaginative and playful",
+                    "trait": "Creator"
+                  },
+                  {
+                    "answer": "Warm and social",
+                    "trait": "Helper"
+                  },
+                  {
+                    "answer": "Energetic and competitive",
+                    "trait": "Leader"
+                  }
+                ]
+              },
+              {
+                "question": "How do you like to make decisions?",
+                "options": [
+                  {
+                    "answer": "Based on facts and evidence",
+                    "trait": "Thinker"
+                  },
+                  {
+                    "answer": "Based on creativity and intuition",
+                    "trait": "Creator"
+                  },
+                  {
+                    "answer": "Based on how it affects people",
+                    "trait": "Helper"
+                  },
+                  {
+                    "answer": "Based on speed and practicality",
+                    "trait": "Leader"
+                  }
+                ]
+              },
+              {
+                "question": "In a group project, you usually…",
+                "options": [
+                  {
+                    "answer": "Do the research and organize details",
+                    "trait": "Thinker"
+                  },
+                  {
+                    "answer": "Design and make it fun",
+                    "trait": "Creator"
+                  },
+                  {
+                    "answer": "Keep everyone together and motivated",
+                    "trait": "Helper"
+                  },
+                  {
+                    "answer": "Take the lead and push for results",
+                    "trait": "Leader"
+                  }
+                ]
+              },
+              {
+                "question": "What kind of environment do you enjoy most?",
+                "options": [
+                  {
+                    "answer": "Quiet and focused",
+                    "trait": "Thinker"
+                  },
+                  {
+                    "answer": "Colorful and inspiring",
+                    "trait": "Creator"
+                  },
+                  {
+                    "answer": "Friendly and cooperative",
+                    "trait": "Helper"
+                  },
+                  {
+                    "answer": "Fast-paced and exciting",
+                    "trait": "Leader"
+                  }
+                ]
+              },
+              {
+                "question": "How do you recharge your energy?",
+                "options": [
+                  {
+                    "answer": "Spending time alone or reading",
+                    "trait": "Thinker"
+                  },
+                  {
+                    "answer": "Doing something creative",
+                    "trait": "Creator"
+                  },
+                  {
+                    "answer": "Talking and laughing with friends",
+                    "trait": "Helper"
+                  },
+                  {
+                    "answer": "Playing games, sports, or activities",
+                    "trait": "Leader"
+                  }
+                ]
+              },
+              {
+                "question": "Which word matches you best?",
+                "options": [
+                  {
+                    "answer": "Thinker",
+                    "trait": "Thinker"
+                  },
+                  {
+                    "answer": "Creator",
+                    "trait": "Creator"
+                  },
+                  {
+                    "answer": "Helper",
+                    "trait": "Helper"
+                  },
+                  {
+                    "answer": "Leader",
+                    "trait": "Leader"
+                  }
+                ]
+              },
+              {
+                "question": "What annoys you the most?",
+                "options": [
+                  {
+                    "answer": "Disorganization or unclear rules",
+                    "trait": "Thinker"
+                  },
+                  {
+                    "answer": "Boring routines with no creativity",
+                    "trait": "Creator"
+                  },
+                  {
+                    "answer": "Conflicts and lack of teamwork",
+                    "trait": "Helper"
+                  },
+                  {
+                    "answer": "Slow decision-making",
+                    "trait": "Leader"
+                  }
+                ]
+              },
+              {
+                "question": "If your friends describe you in one word, it would be…",
+                "options": [
+                  {
+                    "answer": "Smart",
+                    "trait": "Thinker"
+                  },
+                  {
+                    "answer": "Creative",
+                    "trait": "Creator"
+                  },
+                  {
+                    "answer": "Caring",
+                    "trait": "Helper"
+                  },
+                  {
+                    "answer": "Bold",
+                    "trait": "Leader"
+                  }
+                ]
+              },
+              {
+                "question": "What brings you the most satisfaction?",
+                "options": [
+                  {
+                    "answer": "Solving a tricky problem or mastering knowledge",
+                    "trait": "Thinker"
+                  },
+                  {
+                    "answer": "Expressing yourself in a unique way",
+                    "trait": "Creator"
+                  },
+                  {
+                    "answer": "Helping someone or spreading kindness",
+                    "trait": "Helper"
+                  },
+                  {
+                    "answer": "Achieving goals or proving yourself",
+                    "trait": "Leader"
+                  }
+                ]
+              },
+              {
+                "question": "How do you usually handle unexpected changes?",
+                "options": [
+                  {
+                    "answer": "Stay calm, think it through, and adapt",
+                    "trait": "Thinker"
+                  },
+                  {
+                    "answer": "Improvise and come up with something creative",
+                    "trait": "Creator"
+                  },
+                  {
+                    "answer": "Lean on others and collaborate",
+                    "trait": "Helper"
+                  },
+                  {
+                    "answer": "Act fast and take control",
+                    "trait": "Leader"
+                  }
+                ]
+              },
+              {
+                "question": "What makes you feel the most fulfilled?",
+                "options": [
+                  {
+                    "answer": "Cracking a tough challenge",
+                    "trait": "Thinker"
+                  },
+                  {
+                    "answer": "Turning an idea into reality",
+                    "trait": "Creator"
+                  },
+                  {
+                    "answer": "Making a positive difference in someone’s life",
+                    "trait": "Helper"
+                  },
+                  {
+                    "answer": "Winning or reaching a new milestone",
+                    "trait": "Leader"
+                  }
+                ]
+              },
+              {
+                "question": "When working on something important, what do you focus on most?",
+                "options": [
+                  {
+                    "answer": "Getting every detail accurate",
+                    "trait": "Thinker"
+                  },
+                  {
+                    "answer": "Making it inspiring and original",
+                    "trait": "Creator"
+                  },
+                  {
+                    "answer": "Ensuring everyone is included and comfortable",
+                    "trait": "Helper"
+                  },
+                  {
+                    "answer": "Finishing strong and hitting the goal",
+                    "trait": "Leader"
+                  }
+                ]
+              },
+              {
+                "question": "What kind of stories or movies do you enjoy most?",
+                "options": [
+                  {
+                    "answer": "Mystery, sci-fi, or documentaries",
+                    "trait": "Thinker"
+                  },
+                  {
+                    "answer": "Fantasy, adventure, or artful stories",
+                    "trait": "Creator"
+                  },
+                  {
+                    "answer": "Heartwarming dramas or friendships",
+                    "trait": "Helper"
+                  },
+                  {
+                    "answer": "Action, thrillers, or competition",
+                    "trait": "Leader"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
