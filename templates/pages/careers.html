@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore Careers - OptimalQuest</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<style>
+
+      body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f8fb;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+    }
+
+    .nav-actions {
+      margin-left: 120px;      
+      gap: -100px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .navbar { 
+      margin-left: -40px;
+    }
+
+    .intro {
+      margin-bottom: 1.5rem;
+    }
+
+    .logo {
+      scale: 4;
+    }
+
+    .menu-items {
+      list-style: none;
+      display: flex;
+      gap: 60px; 
+      padding: 0;
+    }
+    
+    .ec-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+
+    .ec-item {
+      background: #f9fafb;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      border: 1px solid #e5e7eb;
+      transition: 0.3s;
+    }
+
+    .ec-item:hover {
+      background: #eef2ff;
+      border-color: #c7d2fe;
+    }
+
+    .ec-item input {
+      margin-right: 0.5rem;
+    }
+
+    .summary {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: #f1f5f9;
+      border-radius: 0.75rem;
+      display: none;
+    }
+
+    .summary h3 {
+      margin-top: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #2563eb;
+      color: white;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #1e40af;
+    }
+  /* ===== BIG INTRO CARD ===== */
+.intro-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 2rem;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-width: 1300px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.intro-card:hover {
+  transform: translateY(-10px) scale(1); /* moves up and slightly enlarges */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35); /* stronger shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* smooth pop effect */
+}
+
+/* ===== GRID OF SMALL CARDS ===== */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 0 40px;
+}
+
+/* ===== SMALL CARDS ===== */
+.course-card {
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  height: 100%; /* fill grid cell height */
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course-card h3 {
+  margin-bottom: 0.8rem;
+}
+
+.course-card p {
+  flex-grow: 1; /* makes text expand to fill card */
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+</style>
+<body>
+<nav class="navbar" style="background:#fff; padding:0.75rem 2rem; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+  <div class="navbar-container" style="display:flex; align-items:center; justify-content:space-between; max-width:1200px; margin:0 auto;">
+
+    <!-- Logo -->
+    <div style="flex-shrink:0; display:flex">
+      <img src="{{ url_for('static', filename='optimalquest_logo.png') }}" 
+           alt="Logo" 
+           class="logo" 
+           style="height:40px; width:auto; object-fit:contain;"/>
+    </div>
+
+    <!-- Menu Items -->
+    <ul class="menu-items" style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('courses') }}">Courses</a></li>
+      <li><a href="{{ url_for('careers') }}">Careers</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+
+    <!-- Auth Actions -->
+<!-- Auth Actions -->
+<div style="display:flex; align-items:center; gap:10px; margin-left:auto; font-size:14px;">
+  {% if session.get('user') %}
+    <span>Welcome, {{ session['user'] }}!</span>
+
+    <!-- Dashboard -->
+    <a href="{{ url_for('dashboard') }}" class="btn dashboard-btn"
+       style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 20px; margin-top: -0px;">
+      <i class="fa-solid fa-house-user"></i>
+      Dashboard
+    </a>
+
+    <!-- Logout -->
+    <a href="{{ url_for('logout') }}" class="btn logout-btn"
+       style="padding:0.4rem 0.8rem; background:#dc3545; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 2px; margin-top: -0px;">
+      <i class="fa-solid fa-right-from-bracket"></i>
+      Logout
+    </a>
+  {% else %}
+    <!-- Login -->
+    <a href="{{ url_for('login') }}" class="btn login-btn"
+       style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
+      <i class="fa-solid fa-right-to-bracket"></i>       
+      Login
+    </a>
+
+    <!-- Register -->
+    <a href="{{ url_for('register') }}" class="btn register-btn"
+       style="padding:0.4rem 0.8rem; background:#007bff; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
+        <i class="fa-solid fa-user-pen"></i>        
+        Register
+    </a>
+  {% endif %}
+</div>
+
+
+  </div>
+</nav>
+  <section class="course">
+    <div class="intro-card">
+    <h1>Explore Careers</h1>
+    <p>Find the right careers destined for you! Click on the category you would like to see careers for and it will show all the information you need to know about that specific job!</p>
+
+    <div class="courses-grid">
+        <!-- Tech & Engineering -->
+<a href="{{ url_for('softwaredeveloper') }}" class="course-card">
+  <h3>Software Developer</h3>
+  <p>Build innovative software applications to solve real-world problems.</p>
+</a>
+<a href="{{ url_for('datascientist') }}" class="course-card">
+  <h3>Data Scientist</h3>
+  <p>Analyze complex data to uncover insights and drive smart decisions.</p>
+</a>
+<a href="{{ url_for('machinelearning') }}" class="course-card">
+  <h3>Machine Learning Engineer</h3>
+  <p>Create intelligent systems that learn and adapt from data.</p>
+</a>
+<a href="{{ url_for('frontenddeveloper') }}" class="course-card">
+  <h3>Frontend Developer</h3>
+  <p>Design and develop engaging user interfaces for websites and apps.</p>
+</a>
+<a href="{{ url_for('gamedeveloper') }}" class="course-card">
+  <h3>Game Developer</h3>
+  <p>Craft immersive and interactive video games for players worldwide.</p>
+</a>
+<a href="{{ url_for('appdeveloper') }}" class="course-card">
+  <h3>App Developer</h3>
+  <p>Build mobile applications that users love and rely on daily.</p>
+</a>
+<a href="{{ url_for('cybersecurityanalysist') }}" class="course-card">
+  <h3>Cybersecurity Analyst</h3>
+  <p>Protect digital systems by identifying and stopping cyber threats.</p>
+</a>
+<a href="{{ url_for('airesearcher') }}" class="course-card">
+  <h3>AI Researcher</h3>
+  <p>Push the boundaries of artificial intelligence through cutting-edge research.</p>
+</a>
+<a href="{{ url_for('ux_uidesigner') }}" class="course-card">
+  <h3>UX/UI Designer</h3>
+  <p>Design user-friendly digital experiences that are intuitive and attractive.</p>
+</a>
+
+<!-- Data & Analysis -->
+<a href="{{ url_for('dataanalyst') }}" class="course-card">
+  <h3>Data Analyst</h3>
+  <p>Interpret data to help organizations make informed decisions.</p>
+</a>
+<a href="{{ url_for('bia') }}" class="course-card">
+  <h3>Business Intelligence Analyst</h3>
+  <p>Turn business data into actionable insights for strategy.</p>
+</a>
+<a href="{{ url_for('statistician') }}" class="course-card">
+  <h3>Statistician</h3>
+  <p>Use statistical methods to solve problems and analyze trends.</p>
+</a>
+<a href="{{ url_for('finana') }}" class="course-card">
+  <h3>Financial Analyst</h3>
+  <p>Evaluate financial data to guide investment and business choices.</p>
+</a>
+<a href="{{ url_for('mra') }}" class="course-card">
+  <h3>Market Research Analyst</h3>
+  <p>Study market conditions to help companies understand customers.</p>
+</a>
+<a href="{{ url_for('operationsanalyst') }}" class="course-card">
+  <h3>Operations Analyst</h3>
+  <p>Optimize business operations through data-driven solutions.</p>
+</a>
+<a href="{{ url_for('actuary') }}" class="course-card">
+  <h3>Actuary</h3>
+  <p>Assess financial risks using math and statistics for insurance and finance.</p>
+</a>
+
+<!-- Creative & Design -->
+<a href="{{ url_for('gd') }}" class="course-card">
+  <h3>Graphic Designer</h3>
+  <p>Create visual content to communicate ideas and captivate audiences.</p>
+</a>
+<a href="{{ url_for('ux_designer') }}" class="course-card">
+  <h3>UX Designer</h3>
+  <p>Enhance product usability by focusing on user experience design.</p>
+</a>
+<a href="{{ url_for('ui_designer') }}" class="course-card">
+  <h3>UI Designer</h3>
+  <p>Design visually appealing interfaces that users find easy to navigate.</p>
+</a>
+<a href="{{ url_for('animator') }}" class="course-card">
+  <h3>Animator</h3>
+  <p>Bring stories to life through animated films and graphics.</p>
+</a>
+<a href="{{ url_for('videoeditor') }}" class="course-card">
+  <h3>Video Editor</h3>
+  <p>Craft compelling videos by assembling footage and effects.</p>
+</a>
+<a href="{{ url_for('artdirector') }}" class="course-card">
+  <h3>Art Director</h3>
+  <p>Lead creative projects and teams to produce artistic work.</p>
+</a>
+<a href="{{ url_for('creativetechnologist') }}" class="course-card">
+  <h3>Creative Technologist</h3>
+  <p>Combine technology and design to build innovative media projects.</p>
+</a>
+<a href="{{ url_for('industrialdesigner') }}" class="course-card">
+  <h3>Industrial Designer</h3>
+  <p>Design functional and attractive products used daily.</p>
+</a>
+
+<!-- Communication & Writing -->
+<a href="{{ url_for('contentwriter') }}" class="course-card">
+  <h3>Content Writer</h3>
+  <p>Produce engaging written material for blogs, websites, and more.</p>
+</a>
+<a href="{{ url_for('copywriter') }}" class="course-card">
+  <h3>Copywriter</h3>
+  <p>Craft persuasive marketing copy that drives sales and brand awareness.</p>
+</a>
+<a href="{{ url_for('journalist') }}" class="course-card">
+  <h3>Journalist</h3>
+  <p>Report news stories and deliver accurate information to the public.</p>
+</a>
+<a href="{{ url_for('socialmediamanager') }}" class="course-card">
+  <h3>Social Media Manager</h3>
+  <p>Manage and grow online communities and brand presence.</p>
+</a>
+<a href="{{ url_for('technicalwriter') }}" class="course-card">
+  <h3>Technical Writer</h3>
+  <p>Write clear technical documentation and manuals for products.</p>
+</a>
+<a href="{{ url_for('prspecialist') }}" class="course-card">
+  <h3>PR Specialist</h3>
+  <p>Shape public perception through media and communication strategies.</p>
+</a>
+<a href="{{ url_for('podcast_producer') }}" class="course-card">
+  <h3>Podcast Producer</h3>
+  <p>Create and manage audio content to entertain and inform listeners.</p>
+</a>
+
+<!-- Research & Academia -->
+<a href="{{ url_for('academic_researcher') }}" class="course-card">
+  <h3>Academic Researcher</h3>
+  <p>Conduct original research to advance knowledge in various fields.</p>
+</a>
+<a href="{{ url_for('scientist') }}" class="course-card">
+  <h3>Scientist (Physics, Biology, etc.)</h3>
+  <p>Explore natural phenomena through scientific study.</p>
+</a>
+<a href="{{ url_for('university_professor') }}" class="course-card">
+  <h3>University Professor</h3>
+  <p>Teach and mentor students while conducting academic research.</p>
+</a>
+<a href="{{ url_for('policy_analyst') }}" class="course-card">
+  <h3>Policy Analyst</h3>
+  <p>Analyze and develop policies impacting society and government.</p>
+</a>
+<a href="{{ url_for('environmental_researcher') }}" class="course-card">
+  <h3>Environmental Researcher</h3>
+  <p>Study environmental issues to promote sustainability.</p>
+</a>
+<a href="{{ url_for('psychology') }}" class="course-card">
+  <h3>Human Behavior Specialist (Psychology)</h3>
+  <p>Investigate mental processes and behavior scientifically.</p>
+</a>
+
+<!-- Business & Entrepreneurship -->
+<a href="{{ url_for('entrepreneur') }}" class="course-card">
+  <h3>Entrepreneur / Startup Founder</h3>
+  <p>Launch and grow new businesses to solve market needs.</p>
+</a>
+<a href="{{ url_for('product_manager') }}" class="course-card">
+  <h3>Product Manager</h3>
+  <p>Guide product development from concept to launch and beyond.</p>
+</a>
+<!-- Business & Management -->
+<a href="{{ url_for('marketing_manager') }}" class="course-card">
+  <h3>Marketing Manager</h3>
+  <p>Lead marketing campaigns to boost brand growth and engagement.</p>
+</a>
+<a href="{{ url_for('management_consultant') }}" class="course-card">
+  <h3>Management Consultant</h3>
+  <p>Advise organizations on strategy, operations, and performance improvement.</p>
+</a>
+<a href="{{ url_for('business_analyst') }}" class="course-card">
+  <h3>Business Analyst</h3>
+  <p>Analyze business data and processes to recommend solutions.</p>
+</a>
+<a href="{{ url_for('sales_strategist') }}" class="course-card">
+  <h3>Sales Strategist</h3>
+  <p>Develop strategies to maximize sales and customer engagement.</p>
+</a>
+<a href="{{ url_for('ecommerce_manager') }}" class="course-card">
+  <h3>E-Commerce Manager</h3>
+  <p>Manage online sales platforms to grow e-commerce business.</p>
+</a>
+
+<!-- Social Impact & Nonprofit -->
+<a href="{{ url_for('social_worker') }}" class="course-card">
+  <h3>Social Worker</h3>
+  <p>Support individuals and communities to improve well-being.</p>
+</a>
+<a href="{{ url_for('ngo_project_manager') }}" class="course-card">
+  <h3>NGO Project Manager</h3>
+  <p>Lead projects aimed at creating social change and community support.</p>
+</a>
+<a href="{{ url_for('public_health_specialist') }}" class="course-card">
+  <h3>Public Health Specialist</h3>
+  <p>Promote health education and disease prevention at the community level.</p>
+</a>
+<a href="{{ url_for('education_program_manager') }}" class="course-card">
+  <h3>Education Program Manager</h3>
+  <p>Coordinate educational initiatives for underserved populations.</p>
+</a>
+<a href="{{ url_for('community_organizer') }}" class="course-card">
+  <h3>Community Organizer</h3>
+  <p>Mobilize community members to advocate for social and political causes.</p>
+</a>
+<a href="{{ url_for('mental_health_counselor') }}" class="course-card">
+  <h3>Mental Health Counselor</h3>
+  <p>Provide counseling and support to improve mental well-being.</p>
+</a>
+<a href="{{ url_for('youth_mentor') }}" class="course-card">
+  <h3>Youth Mentor</h3>
+  <p>Guide and support young people through mentorship programs.</p>
+</a>
+
+<!-- Healthcare & Wellness -->
+<a href="{{ url_for('nurse') }}" class="course-card">
+  <h3>Nurse</h3>
+  <p>Provide patient care and support in various healthcare settings.</p>
+</a>
+<a href="{{ url_for('psychologist') }}" class="course-card">
+  <h3>Psychologist</h3>
+  <p>Study mental processes and provide therapy to patients.</p>
+</a>
+<a href="{{ url_for('physical_therapist') }}" class="course-card">
+  <h3>Physical Therapist</h3>
+  <p>Help patients regain movement and manage pain through therapy.</p>
+</a>
+<a href="{{ url_for('nutritionist') }}" class="course-card">
+  <h3>Nutritionist</h3>
+  <p>Advise on diet and nutrition for better health.</p>
+</a>
+<a href="{{ url_for('occupational_therapist') }}" class="course-card">
+  <h3>Occupational Therapist</h3>
+  <p>Support patients in developing skills for daily living and work.</p>
+</a>
+<a href="{{ url_for('mental_health_counselor') }}" class="course-card">
+  <h3>Mental Health Counselor</h3>
+  <p>Provide peer support and counseling services.</p>
+</a>
+<a href="{{ url_for('health_tech_innovator') }}" class="course-card">
+  <h3>Health Tech Innovator</h3>
+  <p>Develop innovative technologies to improve healthcare.</p>
+</a>
+
+<!-- Medical Specializations -->
+<a href="{{ url_for('general_practitioner') }}" class="course-card">
+  <h3>General Practitioner (Family Physician)</h3>
+  <p>Provide primary healthcare and treat a wide range of conditions.</p>
+</a>
+<a href="{{ url_for('pediatrician') }}" class="course-card">
+  <h3>Pediatrician</h3>
+  <p>Specialize in medical care for infants, children, and adolescents.</p>
+</a>
+<a href="{{ url_for('cardiologist') }}" class="course-card">
+  <h3>Cardiologist</h3>
+  <p>Diagnose and treat heart-related diseases and conditions.</p>
+</a>
+<a href="{{ url_for('neurologist') }}" class="course-card">
+  <h3>Neurologist</h3>
+  <p>Treat disorders related to the nervous system and brain.</p>
+</a>
+<a href="{{ url_for('dermatologist') }}" class="course-card">
+  <h3>Dermatologist</h3>
+  <p>Manage skin diseases and cosmetic issues.</p>
+</a>
+<a href="{{ url_for('orthopedic_surgeon') }}" class="course-card">
+  <h3>Orthopedic Surgeon</h3>
+  <p>Perform surgeries related to bones, joints, and muscles.</p>
+</a>
+<a href="{{ url_for('oncologist') }}" class="course-card">
+  <h3>Oncologist</h3>
+  <p>Treat cancer through medicine, radiation, or surgery.</p>
+</a>
+<a href="{{ url_for('psychiatrist') }}" class="course-card">
+  <h3>Psychiatrist</h3>
+  <p>Provide medical treatment for mental health disorders.</p>
+</a>
+<a href="{{ url_for('ophthalmologist') }}" class="course-card">
+  <h3>Ophthalmologist</h3>
+  <p>Diagnose and treat eye diseases and vision problems.</p>
+</a>
+<a href="{{ url_for('surgeon_general') }}" class="course-card">
+  <h3>Surgeon (General)</h3>
+  <p>Perform general surgeries across various specialties.</p>
+</a>
+<a href="{{ url_for('radiologist') }}" class="course-card">
+  <h3>Radiologist</h3>
+  <p>Use imaging techniques to diagnose diseases.</p>
+</a>
+<a href="{{ url_for('pathologist') }}" class="course-card">
+  <h3>Pathologist</h3>
+  <p>Analyze tissue and bodily fluids to diagnose illness.</p>
+</a>
+<a href="{{ url_for('obgyn') }}" class="course-card">
+  <h3>Obstetrician-Gynecologist (OB-GYN)</h3>
+  <p>Care for women’s reproductive health and childbirth.</p>
+</a>
+<a href="{{ url_for('anesthesiologist') }}" class="course-card">
+  <h3>Anesthesiologist</h3>
+  <p>Manage anesthesia during surgeries and medical procedures.</p>
+</a>
+<a href="{{ url_for('emergency_medicine_doctor') }}" class="course-card">
+  <h3>Emergency Medicine Doctor</h3>
+  <p>Provide urgent care for acute illnesses and injuries.</p>
+</a>
+
+<!-- Education & Training -->
+<a href="{{ url_for('school_teacher') }}" class="course-card">
+  <h3>School Teacher</h3>
+  <p>Educate students and foster learning in classrooms.</p>
+</a>
+<a href="{{ url_for('curriculum_designer') }}" class="course-card">
+  <h3>Curriculum Designer</h3>
+  <p>Create educational programs and lesson plans.</p>
+</a>
+<a href="{{ url_for('college_counselor') }}" class="course-card">
+  <h3>College Counselor</h3>
+  <p>Guide students through academic and career planning.</p>
+</a>
+<a href="{{ url_for('online_course_creator') }}" class="course-card">
+  <h3>Online Course Creator</h3>
+  <p>Develop digital learning content for diverse audiences.</p>
+</a>
+<a href="{{ url_for('education_technologist') }}" class="course-card">
+  <h3>Education Technologist</h3>
+  <p>Design and implement technology to improve education.</p>
+</a>
+
+<!-- Lifestyle & Independent Careers -->
+<a href="{{ url_for('freelance_designer_developer') }}" class="course-card">
+  <h3>Freelance Designer / Developer</h3>
+  <p>Work independently on design and development projects.</p>
+</a>
+<a href="{{ url_for('youtuber_content_creator') }}" class="course-card">
+  <h3>YouTuber / Content Creator</h3>
+  <p>Create and share engaging video and social media content.</p>
+</a>
+<a href="{{ url_for('digital_nomad_remote_worker') }}" class="course-card">
+  <h3>Digital Nomad / Remote Worker</h3>
+  <p>Work remotely while traveling and exploring new places.</p>
+</a>
+<a href="{{ url_for('author') }}" class="course-card">
+  <h3>Author</h3>
+  <p>Write and publish books, articles, and other creative works.</p>
+</a>
+<a href="{{ url_for('life_coach') }}" class="course-card">
+  <h3>Life Coach</h3>
+  <p>Help others achieve personal and professional goals.</p>
+</a>
+<a href="{{ url_for('travel_blogger') }}" class="course-card">
+  <h3>Travel Blogger</h3>
+  <p>Share travel experiences and tips through writing and photos.</p>
+</a>
+
+    </section>
+    {% include 'footer.html' %}
+</body>
+</html>

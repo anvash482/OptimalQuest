@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About OptimalQuest</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f8fb;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+    }
+
+    .nav-actions {
+      margin-left: 120px;      
+      gap: -100px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .navbar { 
+      margin-left: -40px;
+    }
+
+    .intro {
+      margin-bottom: 1.5rem;
+    }
+
+    .logo {
+      scale: 4;
+    }
+
+    .menu-items {
+      list-style: none;
+      display: flex;
+      gap: 60px; 
+      padding: 0;
+    }
+    
+    .ec-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+
+    .ec-item {
+      background: #f9fafb;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      border: 1px solid #e5e7eb;
+      transition: 0.3s;
+    }
+
+    .ec-item:hover {
+      background: #eef2ff;
+      border-color: #c7d2fe;
+    }
+
+    .ec-item input {
+      margin-right: 0.5rem;
+    }
+
+    .summary {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: #f1f5f9;
+      border-radius: 0.75rem;
+      display: none;
+    }
+
+    .summary h3 {
+      margin-top: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #2563eb;
+      color: white;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #1e40af;
+    }
+
+    /* ===== BIG INTRO CARD ===== */
+    .intro-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 3rem 2rem;
+      color: #1e3a8a;
+      backdrop-filter: blur(12px);
+      /* box-shadow: 0 12px 40px rgba(0,0,0,0.25); */
+      max-width: 1200px;
+      margin: 3rem auto;
+      text-align: center;
+    }
+
+    .intro-card h1 {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .intro-card p {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      max-width: 850px;
+      margin: 0 auto;
+      color: #1e3a8a;
+    }
+
+    /* .intro-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    } */
+
+    /* ===== GRID OF FEATURES ===== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 20px;
+    }
+
+    .feature-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      transition: transform 0.25s, box-shadow 0.25s;
+      color: #1e3a8a;
+    }
+
+    .feature-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+
+    /* ===== CTA CARD ===== */
+    .cta-card {
+      background: #1e3a8a;
+      color: #fff;
+      border-radius: 18px;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin: 3rem auto;
+      max-width: 900px;
+    }
+
+    .cta-card h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-card p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .cta-card a {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: #2563eb;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .cta-card a:hover {
+      background: #1e3a8a;
+    }
+
+    .stats-section {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 2rem 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.stat-card {
+  background: #eef2ff;
+  border-radius: 1rem;
+  padding: 2rem 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.stat-card h2 {
+  font-size: 2.5rem;
+  color: #2563eb;
+  margin: 0;
+}
+
+.stat-card p {
+  font-size: 1.1rem;
+  color: #1e3a8a;
+  margin-top: 0.5rem;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+  .stat-card h2 {
+    font-size: 2rem;
+  }
+  .stat-card p {
+    font-size: 1rem;
+  }
+}
+
+
+    @media(max-width:1024px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media(max-width:768px) { .features-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav class="navbar" style="background:#fff; padding:0.75rem 2rem; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+  <div class="navbar-container" style="display:flex; align-items:center; justify-content:space-between; max-width:1200px; margin:0 auto;">
+
+    <!-- Logo -->
+    <div style="flex-shrink:0; display:flex">
+      <img src="{{ url_for('static', filename='optimalquest_logo.png') }}" 
+           alt="Logo" 
+           class="logo" 
+           style="height:40px; width:auto; object-fit:contain;"/>
+    </div>
+
+    <!-- Menu Items -->
+    <ul class="menu-items" style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('courses') }}">Courses</a></li>
+      <li><a href="{{ url_for('careers') }}">Careers</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+
+    <!-- Auth Actions -->
+<!-- Auth Actions -->
+<div style="display:flex; align-items:center; gap:10px; margin-left:auto; font-size:14px;">
+  {% if session.get('user') %}
+    <span>Welcome, {{ session['user'] }}!</span>
+
+    <!-- Dashboard -->
+    <a href="{{ url_for('dashboard') }}" class="btn dashboard-btn"
+       style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 20px; margin-top: -0px;">
+      <i class="fa-solid fa-house-user"></i>
+      Dashboard
+    </a>
+
+    <!-- Logout -->
+    <a href="{{ url_for('logout') }}" class="btn logout-btn"
+       style="padding:0.4rem 0.8rem; background:#dc3545; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 2px; margin-top: -0px;">
+      <i class="fa-solid fa-right-from-bracket"></i>
+      Logout
+    </a>
+  {% else %}
+    <!-- Login -->
+    <a href="{{ url_for('login') }}" class="btn login-btn"
+       style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
+      <i class="fa-solid fa-right-to-bracket"></i>       
+      Login
+    </a>
+
+    <!-- Register -->
+    <a href="{{ url_for('register') }}" class="btn register-btn"
+       style="padding:0.4rem 0.8rem; background:#007bff; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
+        <i class="fa-solid fa-user-pen"></i>        
+        Register
+    </a>
+  {% endif %}
+</div>
+
+
+  </div>
+</nav>
+
+  <!-- BIG INTRO CARD -->
+  <div class="intro-card">
+    <h1>Welcome to OptimalQuest</h1>
+    <p>We believe career exploration should be intuitive, exciting, and personalized. OptimalQuest helps learners identify their strengths, uncover passions, and discover career paths that truly inspire them. No guessing, no stress — just a guided journey to your future.</p>
+  </div>
+
+  <!-- FEATURES GRID -->
+  <div class="features-grid">
+    <div class="feature-card">
+      <h3>Personalized Guidance</h3>
+      <p>Take research-backed quizzes and get tailored recommendations for courses, careers, and learning paths that fit your unique strengths.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Actionable Insights</h3>
+      <p>Our platform doesn't just show options — it gives you clear steps and resources to turn your interests into real-world skills and opportunities.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Explore & Learn</h3>
+      <p>Browse curated courses and skill-building tools that help you advance confidently toward your ideal career or academic goal.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Confidence & Clarity</h3>
+      <p>Understand your strengths and interests clearly, so you can make decisions about your future with certainty and purpose.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Accessible Anytime</h3>
+      <p>OptimalQuest is designed to work for students and learners of all levels — desktop, tablet, or mobile — whenever inspiration strikes.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Future-Focused</h3>
+      <p>Our tools and insights are designed to prepare you for careers and opportunities that will shape tomorrow, giving you a competitive edge.</p>
+    </div>
+  </div>
+
+  <!-- CALL TO ACTION -->
+  <div class="cta-card">
+    <h2>Ready to Explore Your Future?</h2>
+    <p>Start your journey today by taking our personalized career quizzes and discovering courses that match your passions and goals.</p>
+    <a href="{{ url_for('courses') }}">Explore Courses</a>
+  </div>
+<!-- =======================
+     OPTIMALQUEST IMPACT SECTION (PROFESSIONAL VERSION)
+======================= -->
+<section class="statistics-section" style="background:#eef2ff; padding:5rem 1.5rem; text-align:center;">
+  <div class="stats-intro" style="max-width:800px; margin:0 auto 3rem auto;">
+    <h1 style="font-size:2.5rem; color:#1e3a8a; margin-bottom:1rem;">Our Impact So Far</h1>
+    <p style="font-size:1.1rem; color:#1e40af; line-height:1.6;">
+      OptimalQuest is shaping the way students explore careers — combining data, learning paths, and real-world insights to guide smarter choices for the future.
+    </p>
+  </div>
+
+  <div class="stats-grid" style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem;">
+
+    <div class="stat-card" style="background:white; padding:2.5rem 1.5rem; border-radius:1rem; box-shadow:0 8px 25px rgba(0,0,0,0.1); transition:transform 0.3s, box-shadow 0.3s;">
+      <h2 style="font-size:2.5rem; color:#2563eb; margin-bottom:0.5rem;">70+</h2>
+      <p style="font-size:1rem; color:#1e3a8a;">Career Categories</p>
+    </div>
+
+    <div class="stat-card" style="background:white; padding:2.5rem 1.5rem; border-radius:1rem; box-shadow:0 8px 25px rgba(0,0,0,0.1); transition:transform 0.3s, box-shadow 0.3s;">
+      <h2 style="font-size:2.5rem; color:#2563eb; margin-bottom:0.5rem;">10+</h2>
+      <p style="font-size:1rem; color:#1e3a8a;">Interactive Learning Roadmaps</p>
+    </div>
+
+    <div class="stat-card" style="background:white; padding:2.5rem 1.5rem; border-radius:1rem; box-shadow:0 8px 25px rgba(0,0,0,0.1); transition:transform 0.3s, box-shadow 0.3s;">
+      <h2 style="font-size:2.5rem; color:#2563eb; margin-bottom:0.5rem;">60+</h2>
+      <p style="font-size:1rem; color:#1e3a8a;">Career Insights & Trends</p>
+    </div>
+
+    <div class="stat-card" style="background:white; padding:2.5rem 1.5rem; border-radius:1rem; box-shadow:0 8px 25px rgba(0,0,0,0.1); transition:transform 0.3s, box-shadow 0.3s;">
+      <h2 style="font-size:2.5rem; color:#2563eb; margin-bottom:0.5rem;">15+</h2>
+      <p style="font-size:1rem; color:#1e3a8a;">Essential Skills Mapped</p>
+    </div>
+
+  </div>
+
+  <p style="margin-top:3rem; font-size:1.1rem; color:#1e3a8a; max-width:850px; margin-left:auto; margin-right:auto; line-height:1.6;">
+    From identifying interests to exploring professional paths, OptimalQuest helps learners uncover possibilities and make confident, informed decisions about their future careers.
+  </p>
+</section>
+
+<style>
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+  .stat-card h2 {
+    font-size: 2rem !important;
+  }
+  .stat-card p {
+    font-size: 0.95rem !important;
+  }
+}
+</style>
+
+  {% include 'footer.html' %}
+</body>
+</html>

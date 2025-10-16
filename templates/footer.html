@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Links</title>
+</head>
+<body>
+    <div class="footer">
+        <div class="col-1">
+            <h3>Our Map</h3>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('courses') }}">Courses</a>
+            <a href="{{ url_for('careers') }}">Careers</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </div>
+        <div class="col-2">
+          <h3>Legal</h3>
+          <a href="{{ url_for('terms') }}">Terms of Service</a>
+          <a href="{{ url_for('privacy') }}">Privacy Policy</a>
+        </div>
+        <div class="col-3">
+          <h3>Contact</h3>
+          <p>contact.optimalquest@gmail.com</p>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/optimalquest25/" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="https://x.com/OptimalQuest25" target="_blank"><i class="fab fa-x fa-lg"></i></a>
+            <a href="https://www.linkedin.com/in/anvay-ashwin-a7494438a/" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
+          </div>
+        </div>
+        </div>
+        <div class="copyright">
+          <p>© 2025 OptimalQuest. All rights reserved.</p>
+        </div>
+</body>
+</html>
