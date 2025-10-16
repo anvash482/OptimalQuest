@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Register - OptimalQuest{% endblock %}
+{% block content %}
+<div class="form-wrapper">
+  <h2>Register</h2>
+
+  <!-- Validation Message Section -->
+  <div id="register-validation" class="validation-box"></div>
+
+  <form id="registerForm" method="POST" action="{{ url_for('register') }}">
+    <label>Username</label>
+    <input type="text" id="reg-username" name="username" required placeholder="Choose username">
+
+    <label>Password</label>
+    <input type="password" id="reg-password" name="password" required placeholder="Enter password">
+
+    <label>Confirm Password</label>
+    <input type="password" id="reg-confirm" name="confirm_password" required placeholder="Re-enter password">
+
+    <button type="submit" class="btn register-btn">Register</button>
+  </form>
+
+  <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a>.</p>
+</div>
+
+<script>
+document.getElementById('registerForm').addEventListener('submit', function(event) {
+  const username = document.getElementById('reg-username').value.trim();
+  const password = document.getElementById('reg-password').value.trim();
+  const confirm = document.getElementById('reg-confirm').value.trim();
+  const validationBox = document.getElementById('register-validation');
+  validationBox.innerHTML = '';
+
+  if (!username || !password || !confirm) {
+    event.preventDefault();
+    validationBox.innerHTML = '<div class="alert error">All fields are required.</div>';
+  } else if (password.length < 6) {
+    event.preventDefault();
+    validationBox.innerHTML = '<div class="alert error">Password must be at least 6 characters.</div>';
+  } else if (password !== confirm) {
+    event.preventDefault();
+    validationBox.innerHTML = '<div class="alert error">Passwords do not match.</div>';
+  }
+});
+</script>
+{% endblock %}

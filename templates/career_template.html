@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ career.name }} - Careers | OptimalQuest</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="container">
+
+  <!-- Hero -->
+  <div class="intro-card">
+    <h1><i class="{{ career.icon }}"></i> {{ career.name }}</h1>
+    <p>{{ career.description }}</p>
+    <a class="btn" href="{{ url_for('quizpage1') }}">Test Your Fit</a>
+  </div>
+
+  <!-- Job Overview -->
+  <div class="career-grid" style="margin-top:2rem;">
+    <div class="career-card">
+      <h3><i class="fa-solid fa-briefcase"></i> Job Description</h3>
+      <p>{{ career.description }}</p>
+    </div>
+    <div class="career-card">
+      <h3><i class="fa-solid fa-chart-line"></i> Job Outlook</h3>
+      <p><strong>Growth:</strong> {{ career.outlook.growth }}</p>
+      <p><strong>New Jobs:</strong> {{ career.outlook.new_jobs }}</p>
+      <p><strong>Automation Risk:</strong> {{ career.outlook.automation }}</p>
+    </div>
+    <div class="career-card">
+      <h3><i class="fa-solid fa-dollar-sign"></i> Salary (U.S.)</h3>
+      <p><strong>Bottom 10%:</strong> {{ career.salary.low }}</p>
+      <p><strong>Median:</strong> {{ career.salary.median }}</p>
+      <p><strong>Top 10%:</strong> {{ career.salary.high }}</p>
+    </div>
+  </div>
+
+  <!-- Duties & Skills -->
+  <div class="career-grid">
+    <div class="career-card">
+      <h3><i class="fa-solid fa-list-check"></i> Duties</h3>
+      <ul>
+        {% for duty in career.duties %}
+          <li>🧪 {{ duty }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="career-card">
+      <h3><i class="fa-solid fa-lightbulb"></i> Skills & Qualities</h3>
+      <ul>
+        {% for skill in career.skills %}
+          <li>💡 {{ skill }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="career-card">
+      <h3><i class="fa-solid fa-building"></i> Working Conditions</h3>
+      <ul>
+        {% for wc in career.working_conditions %}
+          <li>🏢 {{ wc }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Career Path -->
+  <div class="roadmap">
+    <h2>Career Progression</h2>
+    {% for step in career.progression %}
+      <div class="roadmap-step"><i class="fa-solid fa-arrow-right"></i> {{ step }}</div>
+    {% endfor %}
+  </div>
+
+  <!-- Training -->
+  <div class="why-card">
+    <h2>Qualifications & Training</h2>
+    <ul>
+      {% for t in career.training %}
+        <li>🎓 {{ t }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Sources -->
+  <div class="fun-facts">
+    <h2>Sources</h2>
+    {% for source in career.sources %}
+      <p><a href="{{ source.url }}" target="_blank">{{ source.title }}</a></p>
+    {% endfor %}
+  </div>
+
+</div>
+
+{% include 'footer.html' %}
+</body>
+</html>

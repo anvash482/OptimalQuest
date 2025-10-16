@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}OptimalQuest{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-container">
+    <img src="{{ url_for('static', filename='optimalquest_logo.png') }}" alt="Logo" class="logo">
+    <ul class="menu-items">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('courses') }}">Courses</a></li>
+      <li><a href="{{ url_for('careers') }}">Careers</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <form action="/search" method="GET" class="search-form">
+        <div class="search-wrapper">
+          <input type="text" name="query" placeholder="Search..." class="search-bar">
+          <button type="submit" class="search-icon">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+
+
+    </div>
+    <div class="nav-actions">
+      {% if session.get('user') %}
+        <span>Welcome, {{ session['user'] }}!</span>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+        <a href="{{ url_for('login') }}" class="btn login-btn">Login</a>
+        <a href="{{ url_for('register') }}" class="btn register-btn">Register</a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personality Quiz (For Self-Discovery)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* --- Global Styles --- */
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+    body {
+      background: #cce4ff; /* light blue to dark blue */
+      padding: 20px;
+      color: #333;
+    }
+
+
+    h1 { text-align: center; margin-bottom: 30px; color: #4C6EF5; }
+    .quiz-container { max-width: 700px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+    /* --- Progress Bar --- */
+    .progress { width: 100%; background-color: #eee; border-radius: 10px; overflow: hidden; margin-bottom: 30px; }
+    .progress-bar { height: 25px; width: 0; background: linear-gradient(90deg, #4C6EF5, #5A8DEE); text-align: center; color: white; line-height: 25px; font-weight: 600; transition: width 0.3s ease; }
+
+    /* --- Questions --- */
+    .question { margin-bottom: 25px; }
+    .question p { font-weight: 600; font-size: 18px; margin-bottom: 10px; color: #1C1C1C; }
+    .options label { display: block; background: #f1f4ff; padding: 12px 15px; border-radius: 10px; margin-bottom: 10px; cursor: pointer; transition: 0.2s; border: 2px solid transparent; }
+    .options label:hover { background: #dce0ff; border-color: #4C6EF5; }
+    .options input[type="radio"] { margin-right: 10px; accent-color: #4C6EF5; }
+
+    /* --- Button --- */
+    button { display: block; margin: 20px auto 0; background: #4C6EF5; color: #fff; border: none; padding: 12px 25px; font-size: 16px; border-radius: 10px; cursor: pointer; transition: 0.3s; }
+    button:hover { background: #5A8DEE; }
+
+    /* --- Responsive --- */
+    @media (max-width: 600px) {
+      .quiz-container { padding: 20px; }
+      .question p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Personality Quiz (For Self-Discovery)</h1>
+  <div class="quiz-container">
+    <div class="progress">
+      <div class="progress-bar" id="progressBar">0%</div>
+    </div>
+
+    <!-- ✅ Single Form Wrapping Everything -->
+    <form action="{{ url_for('submit_quiz') }}" method="POST" id="quizform">
+
+      <!-- Question 1 -->
+      <div class="question">
+        <p>1. How do you usually spend your free time?</p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="A"> Reading or learning something new</label>
+          <label><input type="radio" name="q1" value="B"> Creating art, music, or writing</label>
+          <label><input type="radio" name="q1" value="C"> Hanging out with friends or family</label>
+          <label><input type="radio" name="q1" value="D"> Playing sports or doing outdoor activities</label>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question">
+        <p>2. When you face a challenge, what’s your first reaction?</p>
+        <div class="options">
+          <label><input type="radio" name="q2" value="A"> Break it down logically and solve it</label>
+          <label><input type="radio" name="q2" value="B"> Think outside the box for creative solutions</label>
+          <label><input type="radio" name="q2" value="C"> Ask for advice or talk it out</label>
+          <label><input type="radio" name="q2" value="D"> Take quick action and handle it head-on</label>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question">
+        <p>3. Which describes your energy level best?</p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="A"> Calm and steady</label>
+          <label><input type="radio" name="q3" value="B"> Imaginative and playful</label>
+          <label><input type="radio" name="q3" value="C"> Warm and social</label>
+          <label><input type="radio" name="q3" value="D"> Energetic and competitive</label>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question">
+        <p>4. How do you like to make decisions?</p>
+        <div class="options">
+          <label><input type="radio" name="q4" value="A"> Based on facts and evidence</label>
+          <label><input type="radio" name="q4" value="B"> Based on creativity and intuition</label>
+          <label><input type="radio" name="q4" value="C"> Based on how it affects people</label>
+          <label><input type="radio" name="q4" value="D"> Based on speed and practicality</label>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question">
+        <p>5. In a group project, you usually…</p>
+        <div class="options">
+          <label><input type="radio" name="q5" value="A"> Do the research and organize details</label>
+          <label><input type="radio" name="q5" value="B"> Design and make it fun</label>
+          <label><input type="radio" name="q5" value="C"> Keep everyone together and motivated</label>
+          <label><input type="radio" name="q5" value="D"> Take the lead and push for results</label>
+        </div>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="question">
+        <p>6. What kind of environment do you enjoy most?</p>
+        <div class="options">
+          <label><input type="radio" name="q6" value="A"> Quiet and focused</label>
+          <label><input type="radio" name="q6" value="B"> Colorful and inspiring</label>
+          <label><input type="radio" name="q6" value="C"> Friendly and cooperative</label>
+          <label><input type="radio" name="q6" value="D"> Fast-paced and exciting</label>
+        </div>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="question">
+        <p>7. How do you recharge your energy?</p>
+        <div class="options">
+          <label><input type="radio" name="q7" value="A"> Spending time alone or reading</label>
+          <label><input type="radio" name="q7" value="B"> Doing something creative</label>
+          <label><input type="radio" name="q7" value="C"> Talking and laughing with friends</label>
+          <label><input type="radio" name="q7" value="D"> Playing games, sports, or activities</label>
+        </div>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="question">
+        <p>8. Which word matches you best?</p>
+        <div class="options">
+          <label><input type="radio" name="q8" value="A"> Thinker</label>
+          <label><input type="radio" name="q8" value="B"> Creator</label>
+          <label><input type="radio" name="q8" value="C"> Helper</label>
+          <label><input type="radio" name="q8" value="D"> Leader</label>
+        </div>
+      </div>
+
+      <!-- Question 9 -->
+      <div class="question">
+        <p>9. What annoys you the most?</p>
+        <div class="options">
+          <label><input type="radio" name="q9" value="A"> Disorganization or unclear rules</label>
+          <label><input type="radio" name="q9" value="B"> Boring routines with no creativity</label>
+          <label><input type="radio" name="q9" value="C"> Conflicts and lack of teamwork</label>
+          <label><input type="radio" name="q9" value="D"> Slow decision-making</label>
+        </div>
+      </div>
+
+      <!-- Question 10 -->
+      <div class="question">
+        <p>10. If your friends describe you in one word, it would be…</p>
+        <div class="options">
+          <label><input type="radio" name="q10" value="A"> Smart</label>
+          <label><input type="radio" name="q10" value="B"> Creative</label>
+          <label><input type="radio" name="q10" value="C"> Caring</label>
+          <label><input type="radio" name="q10" value="D"> Bold</label>
+        </div>
+      </div>
+
+      <!-- Question 11 -->
+      <div class="question">
+        <p>11. What brings you the most satisfaction?</p>
+        <div class="options">
+          <label><input type="radio" name="q11" value="A"> Solving a tricky problem or mastering knowledge</label>
+          <label><input type="radio" name="q11" value="B"> Expressing yourself in a unique way</label>
+          <label><input type="radio" name="q11" value="C"> Helping someone or spreading kindness</label>
+          <label><input type="radio" name="q11" value="D"> Achieving goals or proving yourself</label>
+        </div>
+      </div>
+
+      <!-- Question 12 -->
+      <div class="question">
+        <p>12. How do you usually handle unexpected changes?</p>
+        <div class="options">
+          <label><input type="radio" name="q12" value="A"> Stay calm, think it through, and adapt</label>
+          <label><input type="radio" name="q12" value="B"> Improvise and come up with something creative</label>
+          <label><input type="radio" name="q12" value="C"> Lean on others and collaborate</label>
+          <label><input type="radio" name="q12" value="D"> Act fast and take control</label>
+        </div>
+      </div>
+
+      <!-- Question 13 -->
+      <div class="question">
+        <p>13. What makes you feel the most fulfilled?</p>
+        <div class="options">
+          <label><input type="radio" name="q13" value="A"> Cracking a tough challenge</label>
+          <label><input type="radio" name="q13" value="B"> Turning an idea into reality</label>
+          <label><input type="radio" name="q13" value="C"> Making a positive difference in someone’s life</label>
+          <label><input type="radio" name="q13" value="D"> Winning or reaching a new milestone</label>
+        </div>
+      </div>
+
+      <!-- Question 14 -->
+      <div class="question">
+        <p>14. When working on something important, what do you focus on most?</p>
+        <div class="options">
+          <label><input type="radio" name="q14" value="A"> Getting every detail accurate</label>
+          <label><input type="radio" name="q14" value="B"> Making it inspiring and original</label>
+          <label><input type="radio" name="q14" value="C"> Ensuring everyone is included and comfortable</label>
+          <label><input type="radio" name="q14" value="D"> Finishing strong and hitting the goal</label>
+        </div>
+      </div>
+
+      <!-- Question 15 -->
+      <div class="question">
+        <p>15. What kind of stories or movies do you enjoy most?</p>
+        <div class="options">
+          <label><input type="radio" name="q15" value="A"> Mystery, sci-fi, or documentaries</label>
+          <label><input type="radio" name="q15" value="B"> Fantasy, adventure, or artful stories</label>
+          <label><input type="radio" name="q15" value="C"> Heartwarming dramas or friendships</label>
+          <label><input type="radio" name="q15" value="D"> Action, thrillers, or competition</label>
+        </div>
+      </div>
+
+   
+
+    <div class="quiz-actions">
+    <button type="submit">Submit</button>
+  </div>
+  </form>
+  </div>
+
+  <script>
+    function updateProgress() {
+      const totalQuestions = parseInt(document.getElementById('totalQuestions').value);
+      const questions = document.querySelectorAll('input[type="radio"]');
+      let answered = 0;
+      questions.forEach(q => {
+        if(q.checked) answered++;
+      });
+
+      let percent = Math.round((answered / totalQuestions) * 100);
+      const progressBar = document.getElementById('progressBar');
+      progressBar.style.width = percent + '%';
+      progressBar.textContent = percent + '%';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateProgress);
+      });
+    });
+  </script>
+</body>
+</html>

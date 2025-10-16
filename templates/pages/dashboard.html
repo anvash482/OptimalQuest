@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <title>Career Dashboard — Profile</title>
+  <style>
+
+        body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f8fb;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+    }
+
+    .nav-actions {
+      margin-left: 120px;      
+      gap: -100px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .navbar { 
+      margin-left: -40px;
+    }
+
+    .intro {
+      margin-bottom: 1.5rem;
+    }
+
+    .logo {
+      scale: 4;
+    }
+
+    .menu-items {
+      list-style: none;
+      display: flex;
+      gap: 60px; 
+      padding: 0;
+    }
+    
+    .ec-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+
+    .ec-item {
+      background: #f9fafb;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      border: 1px solid #e5e7eb;
+      transition: 0.3s;
+    }
+
+    .ec-item:hover {
+      background: #eef2ff;
+      border-color: #c7d2fe;
+    }
+
+    .ec-item input {
+      margin-right: 0.5rem;
+    }
+
+    .summary {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: #f1f5f9;
+      border-radius: 0.75rem;
+      display: none;
+    }
+
+    .summary h3 {
+      margin-top: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #2563eb;
+      color: white;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #1e40af;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #2563eb;
+      color: white;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #2563eb;
+      max-width: 600px;
+    }
+
+    .hero a.btn-hero {
+      background: #fff;
+      color: #2563eb;
+      padding: 0.75rem 2rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .hero a.btn-hero:hover {
+      background: #f3f4f6;
+    }
+
+    /* ===== TEAM / MISSION SECTION ===== */
+    .mission-section {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .mission-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #1e3a8a;
+    }
+
+    .mission-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .mission-card {
+      background: #fff;
+      border-radius: 1rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      color: #1e3a8a;
+    }
+
+    .mission-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .mission-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .mission-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #374151;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-section {
+      background: #eef2ff;
+      padding: 4rem 2rem;
+      border-radius: 2rem;
+      max-width: 900px;
+      margin: 4rem auto;
+    }
+
+    .contact-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #1e3a8a;
+    }
+
+    .contact-section p {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      color: #4b5563;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-form label {
+      font-weight: 600;
+      color: #1e3a8a;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      border: 1px solid #cbd5e1;
+      font-size: 1rem;
+      width: 100%;
+      resize: none;
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+    }
+
+    .contact-form button {
+      background: #2563eb;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      transition: 0.3s;
+      align-self: flex-start;
+    }
+
+    .contact-form button:hover {
+      background: #1e40af;
+    }
+
+    /* ===== FOOTER ===== */
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .mission-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form button {
+        width: 100%;
+      }
+    }
+    /* ===== PROFILE PAGE STYLING ===== */
+
+.container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 1.25rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.container h1 {
+    font-size: 2.2rem;
+    color: #1e40af;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    background: #f9fafb;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.field {
+    font-size: 1rem;
+    color: #374151;
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.field strong {
+    color: #1e3a8a;
+    font-weight: 600;
+}
+
+.avatar {
+    margin: 1rem auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #fff;
+    overflow: hidden;
+    border: 3px solid #1e40af;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background: #2563eb;
+    color: white;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 1rem;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background: #1e40af;
+    transform: translateY(-2px);
+}
+
+
+@media (max-width: 600px) {
+    .field {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 2rem;
+    }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" style="background:#fff; padding:0.75rem 2rem; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+    <div class="navbar-container"
+      style="display:flex; align-items:center; justify-content:space-between; max-width:1200px; margin:0 auto;">
+
+      <!-- Logo -->
+      <div style="flex-shrink:0; display:flex">
+        <img src="{{ url_for('static', filename='optimalquest_logo.png') }}" alt="Logo" class="logo"
+          style="height:40px; width:auto; object-fit:contain;" />
+      </div>
+
+      <!-- Menu Items -->
+      <ul class="menu-items" style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('courses') }}">Courses</a></li>
+        <li><a href="{{ url_for('careers') }}">Careers</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+
+      <!-- Auth Actions -->
+      <!-- Auth Actions -->
+      <div style="display:flex; align-items:center; gap:10px; margin-left:auto; font-size:14px;">
+        {% if session.get('user') %}
+        <span>Welcome, {{ session['user'] }}!</span>
+
+        <!-- Dashboard -->
+        <a href="{{ url_for('dashboard') }}" class="btn dashboard-btn"
+          style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 20px; margin-top: -0px;">
+          <i class="fa-solid fa-house-user"></i>
+          Dashboard
+        </a>
+
+        <!-- Logout -->
+        <a href="{{ url_for('logout') }}" class="btn logout-btn"
+          style="padding:0.4rem 0.8rem; background:#dc3545; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 2px; margin-top: -0px;">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Logout
+        </a>
+        {% else %}
+        <!-- Login -->
+        <a href="{{ url_for('login') }}" class="btn login-btn"
+          style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          Login
+        </a>
+
+        <!-- Register -->
+        <a href="{{ url_for('register') }}" class="btn register-btn"
+          style="padding:0.4rem 0.8rem; background:#007bff; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
+          <i class="fa-solid fa-user-pen"></i>
+          Register
+        </a>
+        {% endif %}
+      </div>
+
+
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <h1>Career Dashboard</h1>
+
+    <div class="card">
+      {% if profile %}
+      <div class="field"><strong>Name:</strong> {{ profile.get('name', 'Not Set') }}</div>
+      <div class="field"><strong>Grade:</strong> {{ profile.get('grade', 'Not Set') }}</div>
+      <div class="field"><strong>Gender:</strong> {{ profile.get('gender', 'Not Set') }}</div>
+      <div class="field"><strong>Location:</strong> {{ profile.get('location', 'Not Set') }}</div>
+      <div class="field"><strong>Bio:</strong> {{ profile.get('bio', 'Not Set') }}</div>
+      <div class="field"><strong>Interests:</strong> {{ profile.get('interests') | join(', ') if
+        profile.get('interests') else 'None' }}</div>
+      <div class="field"><strong>Majors:</strong> {{ profile.get('majors') | join(', ') if profile.get('majors') else
+        'None' }}</div>
+      <div class="field"><strong>Skills:</strong> {{ profile.get('skills') | join(', ') if profile.get('skills') else
+        'None' }}</div>
+
+      <div class="avatar">
+        {% if profile.get('image') %}
+        <img src="{{ url_for('static', filename='uploads/' ~ profile.get('image')) }}" alt="Profile Image">
+        {% else %}
+        <span>{{ profile.get('name','AA')[:2]|upper }}</span>
+        {% endif %}
+      </div>
+
+      <a href="{{ url_for('edit_profile') }}" class="btn">Edit Profile</a>
+
+      {% else %}
+      <p>No profile found. Please <a href="{{ url_for('edit_profile') }}" class="btn">Create Profile</a>.</p>
+      {% endif %}
+    </div>
+  </div>
+
+{% include 'footer.html' %}
+
+</body>
+
+</html>
