@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% block title %}OptimalQuest{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
@@ -118,19 +118,19 @@
   </style>
 </head>
 <body>
-<nav class="navbar" style="background:#fff; padding:0.75rem 2rem; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
-  <div class="navbar-container" style="display:flex; align-items:center; justify-content:space-between; max-width:1200px; margin:0 auto;">
+<nav class="navbar" style="background:#fff !important; padding:0.75rem 2rem !important; box-shadow:0 2px 5px rgba(0,0,0,0.1) !important;">
+  <div class="navbar-container" style="display:flex !important; align-items:center !important; justify-content:space-between !important; max-width:1200px !important; margin:0 auto !important;">
 
     <!-- Logo -->
-    <div style="flex-shrink:0; display:flex">
+    <div style="flex-shrink:0 !important; display:flex !important;">
       <img src="{{ url_for('static', filename='optimalquest_logo.png') }}" 
            alt="Logo" 
            class="logo" 
-           style="height:40px; width:auto; object-fit:contain;"/>
+           style="height:40px !important; width:auto !important; object-fit:contain !important;"/>
     </div>
 
     <!-- Menu Items -->
-    <ul class="menu-items" style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
+    <ul class="menu-items" style="display:flex !important; gap:1.5rem !important; list-style:none !important; margin:0 !important; padding:0 !important;">
       <li><a href="{{ url_for('home') }}">Home</a></li>
       <li><a href="{{ url_for('courses') }}">Courses</a></li>
       <li><a href="{{ url_for('careers') }}">Careers</a></li>
@@ -139,44 +139,43 @@
     </ul>
 
     <!-- Auth Actions -->
-<!-- Auth Actions -->
-<div style="display:flex; align-items:center; gap:10px; margin-left:auto; font-size:14px;">
-  {% if session.get('user') %}
-    <span>Welcome, {{ session['user'] }}!</span>
+    <div style="display:flex !important; align-items:center !important; gap:10px !important; margin-left:auto !important; font-size:14px !important;">
+      {% if session.get('user') %}
+        <span>Welcome, {{ session['user'] }}!</span>
 
-    <!-- Dashboard -->
-    <a href="{{ url_for('dashboard') }}" class="btn dashboard-btn"
-       style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 20px; margin-top: -0px;">
-      <i class="fa-solid fa-house-user"></i>
-      Dashboard
-    </a>
+        <!-- Dashboard -->
+        <a href="{{ url_for('dashboard') }}" class="btn dashboard-btn"
+           style="padding:0.4rem 0.8rem !important; background:#28a745 !important; color:#fff !important; border-radius:6px !important; text-decoration:none !important; display:flex !important; align-items:center !important; gap:10px !important; font-size:16px !important; margin-left:20px !important; margin-top:0px !important;">
+          <i class="fa-solid fa-house-user"></i>
+          Dashboard
+        </a>
 
-    <!-- Logout -->
-    <a href="{{ url_for('logout') }}" class="btn logout-btn"
-       style="padding:0.4rem 0.8rem; background:#dc3545; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 2px; margin-top: -0px;">
-      <i class="fa-solid fa-right-from-bracket"></i>
-      Logout
-    </a>
-  {% else %}
-    <!-- Login -->
-    <a href="{{ url_for('login') }}" class="btn login-btn"
-       style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
-      <i class="fa-solid fa-right-to-bracket"></i>       
-      Login
-    </a>
+        <!-- Logout -->
+        <a href="{{ url_for('logout') }}" class="btn logout-btn"
+           style="padding:0.4rem 0.8rem !important; background:#dc3545 !important; color:#fff !important; border-radius:6px !important; text-decoration:none !important; display:flex !important; align-items:center !important; gap:10px !important; font-size:16px !important; margin-left:2px !important; margin-top:0px !important;">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Logout
+        </a>
+      {% else %}
+        <!-- Login -->
+        <a href="{{ url_for('login') }}" class="btn login-btn"
+           style="padding:0.4rem 0.8rem !important; background:#28a745 !important; color:#fff !important; border-radius:6px !important; text-decoration:none !important; display:flex !important; align-items:center !important; gap:6px !important; margin-top:-1px !important;">
+          <i class="fa-solid fa-right-to-bracket"></i>       
+          Login
+        </a>
 
-    <!-- Register -->
-    <a href="{{ url_for('register') }}" class="btn register-btn"
-       style="padding:0.4rem 0.8rem; background:#007bff; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
-        <i class="fa-solid fa-user-pen"></i>        
-        Register
-    </a>
-  {% endif %}
-</div>
-
+        <!-- Register -->
+        <a href="{{ url_for('register') }}" class="btn register-btn"
+           style="padding:0.4rem 0.8rem !important; background:#007bff !important; color:#fff !important; border-radius:6px !important; text-decoration:none !important; display:flex !important; align-items:center !important; gap:6px !important; margin-top:-1px !important;">
+            <i class="fa-solid fa-user-pen"></i>        
+            Register
+        </a>
+      {% endif %}
+    </div>
 
   </div>
 </nav>
+
 
 {% block content %}
 
