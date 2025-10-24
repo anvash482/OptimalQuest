@@ -1,14 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{% block title %}OptimalQuest{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pathologist - Careers | OptimalQuest</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<style>
+
+    html {
+      zoom: 0.95;
+      /* Keeps Safari and Chrome consistent */
+      -webkit-text-size-adjust: 100%;
+      /* Prevents Chrome from auto-scaling text */
+    }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    @supports (-webkit-touch-callout: none) {
+      html {
+        zoom: 1;
+        /* Safari fix to avoid double scaling */
+      }
+    }
+    /* --- MacBook-specific adjustments --- */
+/* --- MacBook-specific visual scaling fix --- */
+
+/* Safari on macOS */
+@supports (-webkit-touch-callout: none) {
+  /* Shrink "Welcome, ___" text */
+  .auth-actions span {
+    font-size: 0.85rem !important;
+  }
+
+  /* Scale down Dashboard/Logout buttons */
+  .auth-actions .dashboard-btn,
+  .auth-actions .logout-btn {
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+
+  /* Scale down main menu items (Home, Courses, Careers, About, Contact) */
+  .menu-items a {
+    transform: scale(0.9);
+    transform-origin: center;
+    display: inline-block;
+  }
+}
+
+/* Chrome on macOS */
+@supports (-webkit-appearance:none) and (not (-webkit-touch-callout:none)) {
+  .auth-actions span {
+    font-size: 0.85rem !important;
+  }
+
+  .auth-actions .dashboard-btn,
+  .auth-actions .logout-btn {
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+
+  .menu-items a {
+    transform: scale(0.9);
+    transform-origin: center;
+    display: inline-block;
+  }
+}
+
     header {
       background: #2563eb;
       color: white;
@@ -18,15 +81,10 @@
       border-bottom-right-radius: 2rem;
     }
 
-    .nav-actions {
-      margin-left: 120px;
-      gap: -100px;
-    }
-
     header h1 {
       margin: 0;
       font-size: 2rem;
-    }
+    } 
 
     .container {
       max-width: 900px;
@@ -34,63 +92,189 @@
       padding: 1.5rem;
       background: white;
       border-radius: 1rem;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     }
 
-    .navbar {
-      margin-left: -40px;
+    .navbar { 
+      background:#fff !important; 
+      padding:0.75rem 2rem !important; 
+      box-shadow:0 2px 5px rgba(0,0,0,0.1) !important;
     }
 
-    .intro {
-      margin-bottom: 1.5rem;
+    .navbar-container {
+      display:flex !important; 
+      align-items:center !important; 
+      justify-content:space-between !important; 
+      max-width:1200px !important; 
+      margin:0 auto !important;
     }
 
     .logo {
-      scale: 4;
+      height:40px !important; 
+      width:auto !important; 
+      object-fit:contain !important;
     }
 
     .menu-items {
-      list-style: none;
-      display: flex;
-      gap: 60px;
-      padding: 0;
+      display:flex !important; 
+      gap:1.5rem !important; 
+      list-style:none !important; 
+      margin:0 !important; 
+      padding:0 !important;
     }
 
-
-    .ec-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
+    .btn {
+      display:flex !important; 
+      align-items:center !important; 
+      gap:6px !important; 
+      padding:0.4rem 0.8rem !important; 
+      border-radius:6px !important; 
+      text-decoration:none !important; 
+      font-size:16px !important;
+      color:#fff !important;
     }
 
-    .ec-item {
-      background: #f9fafb;
-      padding: 1rem;
-      border-radius: 0.75rem;
-      border: 1px solid #e5e7eb;
-      transition: 0.3s;
+    .login-btn { background:#28a745 !important; }
+    .register-btn { background:#007bff !important; }
+    .dashboard-btn { background:#28a745 !important; }
+    .logout-btn { background:#dc3545 !important; }
+    .btn {
+    font-weight: 700 !important;
     }
+    /* Center Login/Register buttons in mobile menu */
+.mobile-menu-items .login-btn,
+.mobile-menu-items .register-btn,
+.mobile-menu-items .dashboard-btn,
+.mobile-menu-items .logout-btn {
+  width: auto;             
+  margin: 0.2rem auto;    
+  justify-content: center;  
+}
+    /* --- SHOW ONLY ON SMALL SCREENS --- */
+@media (max-width: 768px) {
+  .menu-items {
+    display: none !important; 
+  }
 
-    .ec-item:hover {
-      background: #eef2ff;
-      border-color: #c7d2fe;
-    }
+  .auth-actions > a,
+  .auth-actions > span {
+    display: none !important; 
+  }
 
-    .ec-item input {
-      margin-right: 0.5rem;
-    }
+  .mobile-menu-toggle {
+    display: block !important; 
+  }
 
-    .summary {
-      margin-top: 2rem;
-      padding: 1.5rem;
-      background: #f1f5f9;
-      border-radius: 0.75rem;
-      display: none;
-    }
+  /* Show mobile menu items only when open */
+  .mobile-menu-items a {
+    display: block !important;
+  }
+}
 
-    .summary h3 {
-      margin-top: 0;
-    }
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 4rem;
+  gap: 2rem;
+}
+
+.hero-content {
+  max-width: 500px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: #2563eb;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #1e4bb8;
+}
+
+/* Hero image styling */
+.hero-image img {
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Smooth gradient divider under How It Works */
+/* Smooth background fade between sections */
+.how-it-works {
+  background: linear-gradient(to bottom, #ffffff 0%, #f4f8fb 100%);
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+}
+
+#courses {
+  background: linear-gradient(135deg, #d0e7ff, #f0f8ff);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;   
+    align-items: center;     
+    text-align: center;      
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;             
+  }
+
+  .hero-image {
+    justify-content: center;  
+    width: 100%;            
+    margin-top: 1rem;       
+  }
+
+  .hero-image img {
+    max-width: 80%;           
+    height: auto;
+    display: block;
+    margin: 0 auto;          
+  }
+
+  .cta-btn {
+    width: 80%;
+    max-width: 300px;
+    padding: 0.75rem 0;        
+    margin: 1rem auto 0;       
+    text-align: center;
+  }
+}
+}
 
     .btn {
       display: inline-block;
@@ -108,266 +292,253 @@
     .btn:hover {
       background: #1e40af;
     }
+    
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f5f7fa;
-      margin: 0;
-      padding: 0;
-      color: #333;
-      line-height: 1.6;
-    }
+/* Container */
+.container {
+  max-width: 1150px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+}
 
-    /* Container */
-    .container {
-      max-width: 1150px;
-      margin: 2rem auto;
-      padding: 1.5rem;
-    }
+/* ===== HERO ===== */
+.intro-card {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8, #0f172a);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 1.2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 1s ease-in-out;
+}
 
-    /* ===== HERO ===== */
-    .intro-card {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8, #0f172a);
-      color: white;
-      padding: 3rem 2rem;
-      border-radius: 1.2rem;
-      text-align: center;
-      margin-bottom: 2.5rem;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-      animation: fadeIn 1s ease-in-out;
-    }
+.intro-card h1 {
+  font-size: 2.8rem;
+  margin: 0 0 0.5rem;
+}
 
-    .intro-card h1 {
-      font-size: 2.8rem;
-      margin: 0 0 0.5rem;
-    }
+.intro-card p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0.5rem auto 0;
+  opacity: 0.9;
+}
 
-    .intro-card p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0.5rem auto 0;
-      opacity: 0.9;
-    }
+/* ===== CAREER CARDS ===== */
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  margin-top: 1rem;
+}
 
-    /* ===== CAREER CARDS ===== */
-    .career-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
-      margin-top: 1rem;
-    }
+.career-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f1f5f9;
+  position: relative;
+  overflow: hidden;
+}
 
-    .career-card {
-      background: #fff;
-      border-radius: 1rem;
-      padding: 1.5rem;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease;
-      border: 1px solid #f1f5f9;
-      position: relative;
-      overflow: hidden;
-    }
+.career-card h3 {
+  margin-top: 0;
+}
 
-    .career-card h3 {
-      margin-top: 0;
-    }
+.career-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.15);
+  border-color: #dbeafe;
+}
 
-    .career-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15);
-      border-color: #dbeafe;
-    }
+.badge {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.8rem;
+}
 
-    .badge {
-      display: inline-block;
-      padding: 0.4rem 0.9rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 0.8rem;
-    }
+.gpa-strong { background: linear-gradient(90deg, #2563eb, #1e40af); }
+.gpa-exc { background: linear-gradient(90deg, #9333ea, #6b21a8); }
 
-    .gpa-strong {
-      background: linear-gradient(90deg, #2563eb, #1e40af);
-    }
+/* ===== FEATURED COURSES ===== */
+.course-list {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
 
-    .gpa-exc {
-      background: linear-gradient(90deg, #9333ea, #6b21a8);
-    }
+.course-item {
+  background: #ffffff;
+  padding: 1.2rem;
+  border-radius: 0.8rem;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
 
-    /* ===== FEATURED COURSES ===== */
-    .course-list {
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.2rem;
-    }
+.course-item i {
+  font-size: 1.5rem;
+  color: #2563eb;
+  display: block;
+  margin-bottom: 0.6rem;
+}
 
-    .course-item {
-      background: #ffffff;
-      padding: 1.2rem;
-      border-radius: 0.8rem;
-      border: 1px solid #e2e8f0;
-      text-align: center;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
+.course-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: #bfdbfe;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
 
-    .course-item i {
-      font-size: 1.5rem;
-      color: #2563eb;
-      display: block;
-      margin-bottom: 0.6rem;
-    }
+/* ===== ROADMAP ===== */
+.roadmap {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border-left: 4px solid #2563eb;
+  background: #f8fafc;
+  border-radius: 0.5rem;
+}
 
-    .course-item:hover {
-      transform: translateY(-5px) scale(1.02);
-      border-color: #bfdbfe;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
+.roadmap h2 {
+  margin-top: 0;
+}
 
-    /* ===== ROADMAP ===== */
-    .roadmap {
-      margin-top: 3rem;
-      padding: 1.5rem;
-      border-left: 4px solid #2563eb;
-      background: #f8fafc;
-      border-radius: 0.5rem;
-    }
+.roadmap-step {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  font-weight: 500;
+}
 
-    .roadmap h2 {
-      margin-top: 0;
-    }
+.roadmap-step i {
+  font-size: 1.3rem;
+  margin-right: 1rem;
+  color: #2563eb;
+}
 
-    .roadmap-step {
-      display: flex;
-      align-items: center;
-      margin: 1rem 0;
-      font-weight: 500;
-    }
+/* ===== WHY CHOOSE ===== */
+.why-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 3rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
 
-    .roadmap-step i {
-      font-size: 1.3rem;
-      margin-right: 1rem;
-      color: #2563eb;
-    }
+.why-card h2 {
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
 
-    /* ===== WHY CHOOSE ===== */
-    .why-card {
-      background: #fff;
-      border-radius: 1rem;
-      padding: 2rem;
-      margin-top: 3rem;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-    }
+.why-card li {
+  list-style: none;
+}
 
-    .why-card h2 {
-      margin-top: 0;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .why-card li {
-      list-style: none;
-    }
-
-    .why-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-    }
+.why-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
 
 
-    .why-item {
-      background: #f9fafb;
-      border-radius: 0.8rem;
-      padding: 1.2rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      font-weight: 500;
-    }
+.why-item {
+  background: #f9fafb;
+  border-radius: 0.8rem;
+  padding: 1.2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
 
-    .why-item i {
-      font-size: 1.5rem;
-      color: #2563eb;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
+.why-item i {
+  font-size: 1.5rem;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+  display: block;
+}
 
-    .why-item:hover {
-      background: #eef2ff;
-      transform: scale(1.05);
-    }
+.why-item:hover {
+  background: #eef2ff;
+  transform: scale(1.05);
+}
 
-    /* ===== FUN FACTS ===== */
-    .fun-facts {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: white;
-      padding: 2rem;
-      border-radius: 1rem;
-      margin-top: 3rem;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    }
+/* ===== FUN FACTS ===== */
+.fun-facts {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 3rem;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
 
-    .fun-facts h2 {
-      margin-top: 0;
-      margin-bottom: 1rem;
-      color: #fff;
-    }
+.fun-facts h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #fff;
+}
 
-    .fun-facts p {
-      margin: 0.5rem 0;
-      font-size: 1.1rem;
-      opacity: 0.95;
-    }
-
-
-    .career-card ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .career-card ul li {
-      margin: 0.4rem 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .fun-facts a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .fun-facts a:hover {
-      color: #d8851f;
-    }
+.fun-facts p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
 
 
-    /* ===== Animations ===== */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
+.career-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
-</head>
+.career-card ul li {
+  margin: 0.4rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
+.fun-facts a {
+  color: #fff;
+  text-decoration: none; 
+}
+
+.fun-facts a:hover {
+  color: #d8851f;
+}
+
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
 <body>
-<nav class="navbar" style="background:#fff; padding:0.75rem 2rem; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
-  <div class="navbar-container" style="display:flex; align-items:center; justify-content:space-between; max-width:1200px; margin:0 auto;">
 
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-container">
     <!-- Logo -->
     <div style="flex-shrink:0; display:flex">
       <img src="{{ url_for('static', filename='optimalquest_logo.png') }}" 
@@ -376,8 +547,9 @@
            style="height:40px; width:auto; object-fit:contain;"/>
     </div>
 
-    <!-- Menu Items -->
-    <ul class="menu-items" style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
+
+    <!-- Desktop Menu -->
+    <ul class="menu-items">
       <li><a href="{{ url_for('home') }}">Home</a></li>
       <li><a href="{{ url_for('courses') }}">Courses</a></li>
       <li><a href="{{ url_for('careers') }}">Careers</a></li>
@@ -385,50 +557,205 @@
       <li><a href="{{ url_for('contact') }}">Contact</a></li>
     </ul>
 
-    <!-- Auth Actions -->
-<!-- Auth Actions -->
-<div style="display:flex; align-items:center; gap:10px; margin-left:auto; font-size:14px;">
-  {% if session.get('user') %}
-    <span>Welcome, {{ session['user'] }}!</span>
+    <!-- Auth + Hamburger -->
+    <div class="auth-actions">
+      {% if session.get('user') %}
+        <span>Welcome, {{ session['user'] }}!</span>
+        <a href="{{ url_for('dashboard') }}" class="btn dashboard-btn"><i class="fa-solid fa-house-user"></i> Dashboard</a>
+        <a href="{{ url_for('logout') }}" class="btn logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      {% else %}
+        <a href="{{ url_for('login') }}" class="btn login-btn"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+        <a href="{{ url_for('register') }}" class="btn register-btn"><i class="fa-solid fa-user-pen"></i> Register</a>
+      {% endif %}
+      <div class="mobile-menu-toggle" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+  </div>
 
-    <!-- Dashboard -->
-    <a href="{{ url_for('dashboard') }}" class="btn dashboard-btn"
-       style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 20px; margin-top: -0px;">
-      <i class="fa-solid fa-house-user"></i>
-      Dashboard
-    </a>
-
-    <!-- Logout -->
-    <a href="{{ url_for('logout') }}" class="btn logout-btn"
-       style="padding:0.4rem 0.8rem; background:#dc3545; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 2px; margin-top: -0px;">
-      <i class="fa-solid fa-right-from-bracket"></i>
-      Logout
-    </a>
-  {% else %}
-    <!-- Login -->
-    <a href="{{ url_for('login') }}" class="btn login-btn"
-       style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
-      <i class="fa-solid fa-right-to-bracket"></i>       
-      Login
-    </a>
-
-    <!-- Register -->
-    <a href="{{ url_for('register') }}" class="btn register-btn"
-       style="padding:0.4rem 0.8rem; background:#007bff; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
-        <i class="fa-solid fa-user-pen"></i>        
-        Register
-    </a>
-  {% endif %}
-</div>
-
-
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <span class="close-icon" onclick="toggleMenu()">✕</span>
+    </div>
+    <ul class="mobile-menu-items">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('courses') }}">Courses</a></li>
+      <li><a href="{{ url_for('careers') }}">Careers</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      {% if session.get('user') %}
+        <li><a href="{{ url_for('dashboard') }}" class="btn dashboard-btn">Dashboard</a></li>
+        <li><a href="{{ url_for('logout') }}" class="btn logout-btn">Logout</a></li>
+      {% else %}
+        <li><a href="{{ url_for('login') }}" class="btn login-btn">Login</a></li>
+        <li><a href="{{ url_for('register') }}" class="btn register-btn">Register</a></li>
+      {% endif %}
+    </ul>
   </div>
 </nav>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("open");
+  }
+</script>
+<style>
+  .navbar {
+    background: #fff;
+    padding: 0.75rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 9999;
+  }
+
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .menu-items {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-items a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+
+  .menu-items a:hover {
+    color: #2563eb;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+  }
+
+  .login-btn { background: #28a745; }
+  .register-btn { background: #007bff; }
+  .dashboard-btn { background: #28a745; }
+  .logout-btn { background: #dc3545; }
+
+.auth-actions {
+  display: flex;
+  align-items: flex-start; 
+  gap: 10px;
+  margin-top: 4px; 
+}
+
+.auth-actions .btn {
+  margin-top: 0; 
+}
+
+
+  .mobile-menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    display: none;
+    z-index: 10001;
+  }
+
+  .btn-quiz1 {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #2563eb;
+      color: white;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: background 0.3s;
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 70%;
+    max-width: 280px;
+    background: #fff;
+    box-shadow: 3px 0 8px rgba(0,0,0,0.2);
+    padding: 1.5rem 1rem;
+    z-index: 10000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+
+  .mobile-menu-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+
+  .close-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+  }
+    .mobile-menu-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mobile-menu-items a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* Responsive behavior */
+  @media (max-width: 768px) {
+    .menu-items,
+    .auth-actions a:not(.mobile-menu-toggle),
+    .auth-actions span {
+      display: none !important;
+    }
+
+    .mobile-menu-toggle {
+      display: block !important;
+    }
+  }
+</style>
   <div class="container">
     <div class="intro-card">
       <h1><i class="fa-solid fa-microscope"></i> Pathologist</h1>
       <p>Analyze tissue and bodily fluids to diagnose illness.</p>
-      <a class="btn" href="{{ url_for('quizpage1') }}">Test Your Fit</a>
+    <a class="btn-quiz1" href="{{ url_for('quizpage1') }}">Test Your Fit</a>
     </div>
     <div class="career-grid">
       <div class="career-card">

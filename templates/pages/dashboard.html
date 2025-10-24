@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -10,13 +9,74 @@
   <title>Career Dashboard — Profile</title>
   <style>
 
-        body {
+    body {
       font-family: 'Poppins', sans-serif;
       background: #f4f8fb;
       margin: 0;
       padding: 0;
       color: #333;
     }
+
+    html {
+      zoom: 0.95;
+      /* Keeps Safari and Chrome consistent */
+      -webkit-text-size-adjust: 100%;
+      /* Prevents Chrome from auto-scaling text */
+    }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    @supports (-webkit-touch-callout: none) {
+      html {
+        zoom: 1;
+        /* Safari fix to avoid double scaling */
+      }
+    }
+/* --- MacBook-specific visual scaling fix --- */
+
+/* Safari on macOS */
+@supports (-webkit-touch-callout: none) {
+  /* Shrink "Welcome, ___" text */
+  .auth-actions span {
+    font-size: 0.85rem !important;
+  }
+
+  /* Scale down Dashboard/Logout buttons */
+  .auth-actions .dashboard-btn,
+  .auth-actions .logout-btn {
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+
+  /* Scale down main menu items (Home, Courses, Careers, About, Contact) */
+  .menu-items a {
+    transform: scale(0.9);
+    transform-origin: center;
+    display: inline-block;
+  }
+}
+
+/* Chrome on macOS */
+@supports (-webkit-appearance:none) and (not (-webkit-touch-callout:none)) {
+  .auth-actions span {
+    font-size: 0.85rem !important;
+  }
+
+  .auth-actions .dashboard-btn,
+  .auth-actions .logout-btn {
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+
+  .menu-items a {
+    transform: scale(0.9);
+    transform-origin: center;
+    display: inline-block;
+  }
+}
 
     header {
       background: #2563eb;
@@ -27,250 +87,86 @@
       border-bottom-right-radius: 2rem;
     }
 
-    .nav-actions {
-      margin-left: 120px;      
-      gap: -100px;
-    }
-
     header h1 {
       margin: 0;
       font-size: 2rem;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1.5rem;
-      background: white;
-      border-radius: 1rem;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    }
-
+    } 
+    
     .navbar { 
-      margin-left: -40px;
+      background:#fff !important; 
+      padding:0.75rem 2rem !important; 
+      box-shadow:0 2px 5px rgba(0,0,0,0.1) !important;
     }
 
-    .intro {
-      margin-bottom: 1.5rem;
+    .navbar-container {
+      display:flex !important; 
+      align-items:center !important; 
+      justify-content:space-between !important; 
+      max-width:1200px !important; 
+      margin:0 auto !important;
     }
 
     .logo {
-      scale: 4;
+      height:40px !important; 
+      width:auto !important; 
+      object-fit:contain !important;
     }
 
     .menu-items {
-      list-style: none;
-      display: flex;
-      gap: 60px; 
-      padding: 0;
-    }
-    
-    .ec-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-
-
-    .ec-item {
-      background: #f9fafb;
-      padding: 1rem;
-      border-radius: 0.75rem;
-      border: 1px solid #e5e7eb;
-      transition: 0.3s;
-    }
-
-    .ec-item:hover {
-      background: #eef2ff;
-      border-color: #c7d2fe;
-    }
-
-    .ec-item input {
-      margin-right: 0.5rem;
-    }
-
-    .summary {
-      margin-top: 2rem;
-      padding: 1.5rem;
-      background: #f1f5f9;
-      border-radius: 0.75rem;
-      display: none;
-    }
-
-    .summary h3 {
-      margin-top: 0;
+      display:flex !important; 
+      gap:1.5rem !important; 
+      list-style:none !important; 
+      margin:0 !important; 
+      padding:0 !important;
     }
 
     .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: #2563eb;
-      color: white;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      margin-top: 1rem;
-      transition: background 0.3s;
+      display:flex !important; 
+      align-items:center !important; 
+      gap:6px !important; 
+      padding:0.4rem 0.8rem !important; 
+      border-radius:6px !important; 
+      text-decoration:none !important; 
+      font-size:16px !important;
+      color:#fff !important;
     }
 
-    .btn:hover {
-      background: #1e40af;
+    .login-btn { background:#28a745 !important; }
+    .register-btn { background:#007bff !important; }
+    .dashboard-btn { background:#28a745 !important; }
+    .logout-btn { background:#dc3545 !important; }
+    .btn {
+    font-weight: 700 !important;
     }
+    /* Center Login/Register buttons in mobile menu */
+.mobile-menu-items .login-btn,
+.mobile-menu-items .register-btn,
+.mobile-menu-items .dashboard-btn,
+.mobile-menu-items .logout-btn {
+  width: auto;             
+  margin: 0.2rem auto;    
+  justify-content: center;  
+}
+    /* --- SHOW ONLY ON SMALL SCREENS --- */
+@media (max-width: 768px) {
+  .menu-items {
+    display: none !important; 
+  }
 
-    /* ===== HERO SECTION ===== */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: #2563eb;
-      color: white;
-      padding: 6rem 2rem 4rem;
-      text-align: center;
-      border-bottom-left-radius: 2rem;
-      border-bottom-right-radius: 2rem;
-    }
+  .auth-actions > a,
+  .auth-actions > span {
+    display: none !important; 
+  }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
+  .mobile-menu-toggle {
+    display: block !important; 
+  }
 
-    .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      color: #2563eb;
-      max-width: 600px;
-    }
-
-    .hero a.btn-hero {
-      background: #fff;
-      color: #2563eb;
-      padding: 0.75rem 2rem;
-      border-radius: 0.75rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .hero a.btn-hero:hover {
-      background: #f3f4f6;
-    }
-
-    /* ===== TEAM / MISSION SECTION ===== */
-    .mission-section {
-      max-width: 1200px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-    }
-
-    .mission-section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #1e3a8a;
-    }
-
-    .mission-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .mission-card {
-      background: #fff;
-      border-radius: 1rem;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-      transition: transform 0.3s, box-shadow 0.3s;
-      color: #1e3a8a;
-    }
-
-    .mission-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    }
-
-    .mission-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .mission-card p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #374151;
-    }
-
-    /* ===== CONTACT SECTION ===== */
-    .contact-section {
-      background: #eef2ff;
-      padding: 4rem 2rem;
-      border-radius: 2rem;
-      max-width: 900px;
-      margin: 4rem auto;
-    }
-
-    .contact-section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #1e3a8a;
-    }
-
-    .contact-section p {
-      text-align: center;
-      font-size: 1.1rem;
-      margin-bottom: 3rem;
-      color: #4b5563;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .contact-form label {
-      font-weight: 600;
-      color: #1e3a8a;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      padding: 0.75rem 1rem;
-      border-radius: 0.75rem;
-      border: 1px solid #cbd5e1;
-      font-size: 1rem;
-      width: 100%;
-      resize: none;
-      outline: none;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      border-color: #2563eb;
-      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
-    }
-
-    .contact-form button {
-      background: #2563eb;
-      color: #fff;
-      font-weight: 600;
-      padding: 0.75rem 2rem;
-      border: none;
-      border-radius: 0.75rem;
-      cursor: pointer;
-      transition: 0.3s;
-      align-self: flex-start;
-    }
-
-    .contact-form button:hover {
-      background: #1e40af;
-    }
+  /* Show mobile menu items only when open */
+  .mobile-menu-items a {
+    display: block !important;
+  }
+}
 
     /* ===== FOOTER ===== */
 
@@ -370,7 +266,6 @@
     font-weight: 600;
     text-decoration: none;
     text-align: center;
-    margin-top: 1rem;
     transition: background 0.3s, transform 0.2s;
 }
 
@@ -400,101 +295,351 @@
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar" style="background:#fff; padding:0.75rem 2rem; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
-    <div class="navbar-container"
-      style="display:flex; align-items:center; justify-content:space-between; max-width:1200px; margin:0 auto;">
-
-      <!-- Logo -->
-      <div style="flex-shrink:0; display:flex">
-        <img src="{{ url_for('static', filename='optimalquest_logo.png') }}" alt="Logo" class="logo"
-          style="height:40px; width:auto; object-fit:contain;" />
-      </div>
-
-      <!-- Menu Items -->
-      <ul class="menu-items" style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
-        <li><a href="{{ url_for('home') }}">Home</a></li>
-        <li><a href="{{ url_for('courses') }}">Courses</a></li>
-        <li><a href="{{ url_for('careers') }}">Careers</a></li>
-        <li><a href="{{ url_for('about') }}">About</a></li>
-        <li><a href="{{ url_for('contact') }}">Contact</a></li>
-      </ul>
-
-      <!-- Auth Actions -->
-      <!-- Auth Actions -->
-      <div style="display:flex; align-items:center; gap:10px; margin-left:auto; font-size:14px;">
-        {% if session.get('user') %}
-        <span>Welcome, {{ session['user'] }}!</span>
-
-        <!-- Dashboard -->
-        <a href="{{ url_for('dashboard') }}" class="btn dashboard-btn"
-          style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 20px; margin-top: -0px;">
-          <i class="fa-solid fa-house-user"></i>
-          Dashboard
-        </a>
-
-        <!-- Logout -->
-        <a href="{{ url_for('logout') }}" class="btn logout-btn"
-          style="padding:0.4rem 0.8rem; background:#dc3545; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 2px; margin-top: -0px;">
-          <i class="fa-solid fa-right-from-bracket"></i>
-          Logout
-        </a>
-        {% else %}
-        <!-- Login -->
-        <a href="{{ url_for('login') }}" class="btn login-btn"
-          style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
-          <i class="fa-solid fa-right-to-bracket"></i>
-          Login
-        </a>
-
-        <!-- Register -->
-        <a href="{{ url_for('register') }}" class="btn register-btn"
-          style="padding:0.4rem 0.8rem; background:#007bff; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
-          <i class="fa-solid fa-user-pen"></i>
-          Register
-        </a>
-        {% endif %}
-      </div>
-
-
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Logo -->
+    <div style="flex-shrink:0; display:flex">
+      <img src="{{ url_for('static', filename='optimalquest_logo.png') }}" 
+           alt="Logo" 
+           class="logo" 
+           style="height:40px; width:auto; object-fit:contain;"/>
     </div>
-  </nav>
 
 
-  <div class="container">
-    <h1>Career Dashboard</h1>
+    <!-- Desktop Menu -->
+    <ul class="menu-items">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('courses') }}">Courses</a></li>
+      <li><a href="{{ url_for('careers') }}">Careers</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
 
-    <div class="card">
-      {% if profile %}
+    <!-- Auth + Hamburger -->
+    <div class="auth-actions">
+      {% if session.get('user') %}
+        <span>Welcome, {{ session['user'] }}!</span>
+        <a href="{{ url_for('dashboard') }}" class="btn dashboard-btn"><i class="fa-solid fa-house-user"></i>Dashboard</a>
+        <a href="{{ url_for('logout') }}" class="btn logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      {% else %}
+        <a href="{{ url_for('login') }}" class="btn login-btn"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+        <a href="{{ url_for('register') }}" class="btn register-btn"><i class="fa-solid fa-user-pen"></i> Register</a>
+      {% endif %}
+      <div class="mobile-menu-toggle" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <span class="close-icon" onclick="toggleMenu()">✕</span>
+    </div>
+    <ul class="mobile-menu-items">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('courses') }}">Courses</a></li>
+      <li><a href="{{ url_for('careers') }}">Careers</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      {% if session.get('user') %}
+        <li><a href="{{ url_for('dashboard') }}" class="btn dashboard-btn">Dashboard</a></li>
+        <li><a href="{{ url_for('logout') }}" class="btn logout-btn">Logout</a></li>
+      {% else %}
+        <li><a href="{{ url_for('login') }}" class="btn login-btn">Login</a></li>
+        <li><a href="{{ url_for('register') }}" class="btn register-btn">Register</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("open");
+  }
+</script>
+
+<style>
+  /* Base navbar */
+  .navbar {
+    background: #fff;
+    padding: 0.75rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 9999;
+  }
+
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .menu-items {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-items a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+
+  .menu-items a:hover {
+    color: #2563eb;
+  }
+
+  .login-btn { background: #28a745; }
+  .register-btn { background: #007bff; }
+  .dashboard-btn { background: #28a745; }
+  .logout-btn { background: #dc3545; }
+
+  .auth-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+.edit-btn {
+  background: linear-gradient(135deg, #2563eb, #1e4bb8);
+  color: #fff !important;
+  padding: 10px 18px;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+}
+
+.edit-btn:hover {
+  background: linear-gradient(135deg, #1e4bb8, #163a94);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35);
+}
+
+.edit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.2);
+}
+
+
+  .mobile-menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    display: none;
+    z-index: 10001;
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 70%;
+    max-width: 280px;
+    background: #fff;
+    box-shadow: 3px 0 8px rgba(0,0,0,0.2);
+    padding: 1.5rem 1rem;
+    z-index: 10000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+
+  .mobile-menu-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+
+  .close-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+  }
+
+  .no-profile-box {
+  background: #eef3ff;
+  padding: 1.8rem;
+  border-radius: 12px;
+  text-align: center;
+  margin: 1rem 0;
+  border: 1px solid rgba(37, 99, 235, 0.15);
+}
+
+.no-profile-box p {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1e3a8a;
+}
+
+
+  .how-it-works h2 {
+    margin-top: -30px;
+    margin-bottom: 20px;
+  }
+
+  .mobile-menu-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mobile-menu-items a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* Responsive behavior */
+  @media (max-width: 768px) {
+    .menu-items,
+    .auth-actions a:not(.mobile-menu-toggle),
+    .auth-actions span {
+      display: none !important;
+    }
+
+    .mobile-menu-toggle {
+      display: block !important;
+    }
+  }
+
+@media (max-width: 768px) {
+  /* Hero Section */
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .hero-image img {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    position: static !important;
+    left: 0 !important;
+  }
+
+  .cta-btn {
+    width: 80%;
+    max-width: 300px;
+    padding: 0.75rem 0;
+    margin: 1rem auto 0;
+    text-align: center;
+  }
+
+  .how-steps {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 2rem; /* spacing below heading */
+    margin-bottom: 3rem;
+  }
+
+  .step {
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .step img {
+    width: 60px;
+    height: 60px;
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .how-it-works h2 {
+    position: relative;
+    top: -5rem; /* adjust this value until it looks right */
+  }
+}
+</style>
+
+
+<div class="container">
+  <h1>Career Dashboard</h1>
+
+  <div class="card">
+
+    {% if profile %}
       <div class="field"><strong>Name:</strong> {{ profile.get('name', 'Not Set') }}</div>
       <div class="field"><strong>Grade:</strong> {{ profile.get('grade', 'Not Set') }}</div>
       <div class="field"><strong>Gender:</strong> {{ profile.get('gender', 'Not Set') }}</div>
       <div class="field"><strong>Location:</strong> {{ profile.get('location', 'Not Set') }}</div>
       <div class="field"><strong>Bio:</strong> {{ profile.get('bio', 'Not Set') }}</div>
-      <div class="field"><strong>Interests:</strong> {{ profile.get('interests') | join(', ') if
-        profile.get('interests') else 'None' }}</div>
-      <div class="field"><strong>Majors:</strong> {{ profile.get('majors') | join(', ') if profile.get('majors') else
-        'None' }}</div>
-      <div class="field"><strong>Skills:</strong> {{ profile.get('skills') | join(', ') if profile.get('skills') else
-        'None' }}</div>
+      <div class="field"><strong>Interests:</strong> {{ profile.get('interests') | join(', ') if profile.get('interests') else 'None' }}</div>
+      <div class="field"><strong>Majors:</strong> {{ profile.get('majors') | join(', ') if profile.get('majors') else 'None' }}</div>
+      <div class="field"><strong>Skills:</strong> {{ profile.get('skills') | join(', ') if profile.get('skills') else 'None' }}</div>
 
       <div class="avatar">
         {% if profile.get('image') %}
-        <img src="{{ url_for('static', filename='uploads/' ~ profile.get('image')) }}" alt="Profile Image">
+          <img src="{{ url_for('static', filename='uploads/' ~ profile.get('image')) }}" alt="Profile Image">
         {% else %}
-        <span>{{ profile.get('name','AA')[:2]|upper }}</span>
+          <span>{{ profile.get('name','AA')[:2]|upper }}</span>
         {% endif %}
       </div>
 
-      <a href="{{ url_for('edit_profile') }}" class="btn">Edit Profile</a>
+      <a href="{{ url_for('edit_profile') }}" class="edit-btn">Edit Profile</a>
 
-      {% else %}
-      <p>No profile found. Please <a href="{{ url_for('edit_profile') }}" class="btn">Create Profile</a>.</p>
-      {% endif %}
-    </div>
+    {% else %}
+
+      <div class="no-profile-box">
+        <p>Your profile isn’t set up yet.</p>
+        <a href="{{ url_for('edit_profile') }}" class="edit-btn">Create Your Profile</a>
+      </div>
+
+    {% endif %}
+
   </div>
+
+</div> 
 
 {% include 'footer.html' %}
 
-</body>
 
 </html>

@@ -4,11 +4,22 @@ from functools import wraps
 import json
 import os 
 from werkzeug.utils import secure_filename
+import os
+import datetime
 
 app = Flask(__name__)
 app.secret_key = "Creation#1anvayashwin2010!"
 with open("career_Paths.json") as f:
     CAREER_PATHS = json.load(f)
+
+# ✅ Make sure the log file always works, no matter where the app runs
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+LOG_FILE = os.path.join(BASE_DIR, "logins.txt")
+
+# ✅ Create the logins.txt file if it doesn’t exist
+if not os.path.exists(LOG_FILE):
+    with open(LOG_FILE, "w") as f:
+        f.write("=== Login Log File ===\n")
     
 profiles = {}
 
@@ -118,6 +129,7 @@ def register():
     return render_template("pages/register.html")
 
 
+
 @app.route('/login', methods=["GET", "POST"])
 def login():
     next_page = request.args.get("next")
@@ -133,11 +145,18 @@ def login():
             flash("Invalid credentials", "danger")
             return redirect(url_for("login", next=next_page))
 
+        # ✅ Successful login
         session["user"] = username
         flash(f"Welcome, {username}!", "success")
+
+        # ✅ Log successful login with timestamp
+        with open(LOG_FILE, "a") as f:
+            f.write(f"{username} logged in at {datetime.datetime.now()}\n")
+
         return redirect(next_page or url_for("dashboard"))
 
     return render_template("pages/login.html", next_page=next_page or "")
+
 
 @app.route('/softwaredeveloper')
 @login_required

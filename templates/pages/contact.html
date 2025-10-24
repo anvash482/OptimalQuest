@@ -25,9 +25,216 @@
       border-bottom-right-radius: 2rem;
     }
 
-    .nav-actions {
-      margin-left: 120px;      
-      gap: -100px;
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Navbar */
+    .navbar { 
+      background:#fff !important; 
+      padding:0.75rem 2rem !important; 
+      box-shadow:0 2px 5px rgba(0,0,0,0.1) !important;
+    }
+    .navbar-container {
+      display:flex !important; 
+      align-items:center !important; 
+      justify-content:space-between !important; 
+      max-width:1200px !important; 
+      margin:0 auto !important;
+    }
+    .logo {
+      height:40px !important; 
+      width:auto !important; 
+      object-fit:contain !important;
+    }
+    .menu-items {
+      display:flex !important; 
+      gap:1.5rem !important; 
+      list-style:none !important; 
+      margin:0 !important; 
+      padding:0 !important;
+    }
+    .btn {
+      display:flex !important; 
+      align-items:center !important; 
+      gap:6px !important; 
+      padding:0.4rem 0.8rem !important; 
+      border-radius:6px !important; 
+      text-decoration:none !important; 
+      font-size:16px !important;
+      color:#fff !important;
+      font-weight:700 !important;
+    }
+    .login-btn { background:#28a745 !important; }
+    .register-btn { background:#007bff !important; }
+    .dashboard-btn { background:#28a745 !important; }
+    .logout-btn { background:#dc3545 !important; }
+
+    /* Mobile menu toggle */
+    .mobile-menu-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      color: #333;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .menu-items,
+      .navbar .btn {
+        display: none !important;
+      }
+      .mobile-menu-toggle {
+        display: block !important;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #2563eb;
+      color: white;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #2563eb;
+      max-width: 600px;
+    }
+    .hero a.cta-btn {
+      background: #fff;
+      color: #2563eb;
+      padding: 0.75rem 2rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .hero a.cta-btn:hover {
+      background: #f3f4f6;
+    }
+
+    .btn-hero {
+      background-color: #F8F9FB;
+      padding: 12px 12px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    /* Contact Form */
+    .contact-section {
+      background: #eef2ff;
+      padding: 4rem 2rem;
+      border-radius: 2rem;
+      max-width: 900px;
+      margin: 4rem auto;
+    }
+    .contact-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #1e3a8a;
+    }
+    .contact-section p {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      color: #4b5563;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .contact-form label {
+      font-weight: 600;
+      color: #1e3a8a;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      border: 1px solid #cbd5e1;
+      font-size: 1rem;
+      width: 100%;
+      resize: none;
+      outline: none;
+    }
+
+    
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+    }
+    .contact-form button {
+      background: #2563eb;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      transition: 0.3s;
+      align-self: flex-start;
+      scale: 1.2;
+    }
+    .contact-form button:hover {
+      background: #1e40af;
+    }
+
+    /* Mobile Contact Form */
+    @media (max-width: 768px) {
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 0.95rem;
+        padding: 0.6rem 0.8rem;
+      }
+      .contact-form button {
+        width: 100%;
+        margin-left: 0;
+        padding: 0.6rem 1rem;
+        scale: 1;
+      }
+    }
+
+        body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f8fb;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
     }
 
     header h1 {
@@ -45,257 +252,195 @@
     }
 
     .navbar { 
-      margin-left: -40px;
+      background:#fff !important; 
+      padding:0.75rem 2rem !important; 
+      box-shadow:0 2px 5px rgba(0,0,0,0.1) !important;
     }
 
-    .intro {
-      margin-bottom: 1.5rem;
+    .navbar-container {
+      display:flex !important; 
+      align-items:center !important; 
+      justify-content:space-between !important; 
+      max-width:1200px !important; 
+      margin:0 auto !important;
     }
 
     .logo {
-      scale: 4;
+      height:40px !important; 
+      width:auto !important; 
+      object-fit:contain !important;
     }
 
     .menu-items {
-      list-style: none;
-      display: flex;
-      gap: 60px; 
-      padding: 0;
-    }
-    
-    .ec-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-
-
-    .ec-item {
-      background: #f9fafb;
-      padding: 1rem;
-      border-radius: 0.75rem;
-      border: 1px solid #e5e7eb;
-      transition: 0.3s;
-    }
-
-    .ec-item:hover {
-      background: #eef2ff;
-      border-color: #c7d2fe;
-    }
-
-    .ec-item input {
-      margin-right: 0.5rem;
-    }
-
-    .summary {
-      margin-top: 2rem;
-      padding: 1.5rem;
-      background: #f1f5f9;
-      border-radius: 0.75rem;
-      display: none;
-    }
-
-    .summary h3 {
-      margin-top: 0;
+      display:flex !important; 
+      gap:1.5rem !important; 
+      list-style:none !important; 
+      margin:0 !important; 
+      padding:0 !important;
     }
 
     .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: #2563eb;
-      color: white;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      margin-top: 1rem;
-      transition: background 0.3s;
+      display:flex !important; 
+      align-items:center !important; 
+      gap:6px !important; 
+      padding:0.4rem 0.8rem !important; 
+      border-radius:6px !important; 
+      text-decoration:none !important; 
+      font-size:16px !important;
+      color:#fff !important;
     }
 
-    .btn:hover {
-      background: #1e40af;
+    .login-btn { background:#28a745 !important; }
+    .register-btn { background:#007bff !important; }
+    .dashboard-btn { background:#28a745 !important; }
+    .logout-btn { background:#dc3545 !important; }
+    .btn {
+    font-weight: 700 !important;
     }
+    /* Center Login/Register buttons in mobile menu */
+.mobile-menu-items .login-btn,
+.mobile-menu-items .register-btn,
+.mobile-menu-items .dashboard-btn,
+.mobile-menu-items .logout-btn {
+  width: auto;             
+  margin: 0.2rem auto;    
+  justify-content: center;  
+}
 
-    /* ===== HERO SECTION ===== */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: #2563eb;
-      color: white;
-      padding: 6rem 2rem 4rem;
-      text-align: center;
-      border-bottom-left-radius: 2rem;
-      border-bottom-right-radius: 2rem;
-    }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
 
-    .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      color: #2563eb;
-      max-width: 600px;
-    }
+    /* --- SHOW ONLY ON SMALL SCREENS --- */
+@media (max-width: 768px) {
+  .menu-items {
+    display: none !important; 
+  }
 
-    .hero a.btn-hero {
-      background: #fff;
-      color: #2563eb;
-      padding: 0.75rem 2rem;
-      border-radius: 0.75rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.3s;
-    }
+  .auth-actions > a,
+  .auth-actions > span {
+    display: none !important; 
+  }
 
-    .hero a.btn-hero:hover {
-      background: #f3f4f6;
-    }
+  .mobile-menu-toggle {
+    display: block !important; 
+  }
 
-    /* ===== TEAM / MISSION SECTION ===== */
-    .mission-section {
-      max-width: 1200px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-    }
+  /* Show mobile menu items only when open */
+  .mobile-menu-items a {
+    display: block !important;
+  }
+}
 
-    .mission-section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #1e3a8a;
-    }
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 4rem;
+  gap: 2rem;
+}
 
-    .mission-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
+.hero-content {
+  max-width: 500px;
+}
 
-    .mission-card {
-      background: #fff;
-      border-radius: 1rem;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-      transition: transform 0.3s, box-shadow 0.3s;
-      color: #1e3a8a;
-    }
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
 
-    .mission-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    }
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
 
-    .mission-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
+.cta-btn {
+  display: inline-block;
+  background: #2563eb;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
 
-    .mission-card p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #374151;
-    }
+.cta-btn:hover {
+  background: #1e4bb8;
+}
 
-    /* ===== CONTACT SECTION ===== */
-    .contact-section {
-      background: #eef2ff;
-      padding: 4rem 2rem;
-      border-radius: 2rem;
-      max-width: 900px;
-      margin: 4rem auto;
-    }
+/* Hero image styling */
+.hero-image img {
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
-    .contact-section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #1e3a8a;
-    }
+/* Smooth gradient divider under How It Works */
+/* Smooth background fade between sections */
+.how-it-works {
+  background: linear-gradient(to bottom, #ffffff 0%, #f4f8fb 100%);
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+}
 
-    .contact-section p {
-      text-align: center;
-      font-size: 1.1rem;
-      margin-bottom: 3rem;
-      color: #4b5563;
-    }
+#courses {
+  background: linear-gradient(135deg, #d0e7ff, #f0f8ff);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
 
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
 
-    .contact-form label {
-      font-weight: 600;
-      color: #1e3a8a;
-    }
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
 
-    .contact-form input,
-    .contact-form textarea {
-      padding: 0.75rem 1rem;
-      border-radius: 0.75rem;
-      border: 1px solid #cbd5e1;
-      font-size: 1rem;
-      width: 100%;
-      resize: none;
-      outline: none;
-    }
+  .hero-content p {
+    font-size: 1rem;
+  }
 
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      border-color: #2563eb;
-      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
-    }
 
-    .contact-form button {
-      background: #2563eb;
-      color: #fff;
-      font-weight: 600;
-      padding: 0.75rem 2rem;
-      border: none;
-      border-radius: 0.75rem;
-      cursor: pointer;
-      transition: 0.3s;
-      align-self: flex-start;
-    }
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;   
+    align-items: center;     
+    text-align: center;      
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;             
+  }
 
-    .contact-form button:hover {
-      background: #1e40af;
-    }
+  .hero-image {
+    justify-content: center;  
+    width: 100%;            
+    margin-top: 1rem;       
+  }
 
-    /* ===== FOOTER ===== */
+  .hero-image img {
+    max-width: 80%;           
+    height: auto;
+    display: block;
+    margin: 0 auto;          
+  }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 900px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
+  .cta-btn {
+    width: 80%;
+    max-width: 300px;
+    padding: 0.75rem 0;        
+    margin: 1rem auto 0;       
+    text-align: center;
+  }
 
-      .mission-cards {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-form button {
-        width: 100%;
-      }
-    }
-
-    
+  
+}
+}
   </style>
 </head>
 <body>
-
-  <!-- NAVBAR -->
-<nav class="navbar" style="background:#fff; padding:0.75rem 2rem; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
-  <div class="navbar-container" style="display:flex; align-items:center; justify-content:space-between; max-width:1200px; margin:0 auto;">
-
+<nav class="navbar">
+  <div class="navbar-container">
     <!-- Logo -->
     <div style="flex-shrink:0; display:flex">
       <img src="{{ url_for('static', filename='optimalquest_logo.png') }}" 
@@ -304,8 +449,9 @@
            style="height:40px; width:auto; object-fit:contain;"/>
     </div>
 
-    <!-- Menu Items -->
-    <ul class="menu-items" style="display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;">
+
+    <!-- Desktop Menu -->
+    <ul class="menu-items">
       <li><a href="{{ url_for('home') }}">Home</a></li>
       <li><a href="{{ url_for('courses') }}">Courses</a></li>
       <li><a href="{{ url_for('careers') }}">Careers</a></li>
@@ -313,45 +459,258 @@
       <li><a href="{{ url_for('contact') }}">Contact</a></li>
     </ul>
 
-    <!-- Auth Actions -->
-<!-- Auth Actions -->
-<div style="display:flex; align-items:center; gap:10px; margin-left:auto; font-size:14px;">
-  {% if session.get('user') %}
-    <span>Welcome, {{ session['user'] }}!</span>
+    <!-- Auth + Hamburger -->
+    <div class="auth-actions">
+      {% if session.get('user') %}
+        <span>Welcome, {{ session['user'] }}!</span>
+        <a href="{{ url_for('dashboard') }}" class="btn dashboard-btn"><i class="fa-solid fa-house-user"></i> Dashboard</a>
+        <a href="{{ url_for('logout') }}" class="btn logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      {% else %}
+        <a href="{{ url_for('login') }}" class="btn login-btn"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+        <a href="{{ url_for('register') }}" class="btn register-btn"><i class="fa-solid fa-user-pen"></i> Register</a>
+      {% endif %}
+      <div class="mobile-menu-toggle" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+  </div>
 
-    <!-- Dashboard -->
-    <a href="{{ url_for('dashboard') }}" class="btn dashboard-btn"
-       style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 20px; margin-top: -0px;">
-      <i class="fa-solid fa-house-user"></i>
-      Dashboard
-    </a>
-
-    <!-- Logout -->
-    <a href="{{ url_for('logout') }}" class="btn logout-btn"
-       style="padding:0.4rem 0.8rem; background:#dc3545; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:10px; font-size:16px; margin-left: 2px; margin-top: -0px;">
-      <i class="fa-solid fa-right-from-bracket"></i>
-      Logout
-    </a>
-  {% else %}
-    <!-- Login -->
-    <a href="{{ url_for('login') }}" class="btn login-btn"
-       style="padding:0.4rem 0.8rem; background:#28a745; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
-      <i class="fa-solid fa-right-to-bracket"></i>       
-      Login
-    </a>
-
-    <!-- Register -->
-    <a href="{{ url_for('register') }}" class="btn register-btn"
-       style="padding:0.4rem 0.8rem; background:#007bff; color:#fff; border-radius:6px; text-decoration:none; display:flex; align-items:center; gap:6px; margin-top: -1px;">
-        <i class="fa-solid fa-user-pen"></i>        
-        Register
-    </a>
-  {% endif %}
-</div>
-
-
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <span class="close-icon" onclick="toggleMenu()">✕</span>
+    </div>
+    <ul class="mobile-menu-items">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('courses') }}">Courses</a></li>
+      <li><a href="{{ url_for('careers') }}">Careers</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      {% if session.get('user') %}
+        <li><a href="{{ url_for('dashboard') }}" class="btn dashboard-btn">Dashboard</a></li>
+        <li><a href="{{ url_for('logout') }}" class="btn logout-btn">Logout</a></li>
+      {% else %}
+        <li><a href="{{ url_for('login') }}" class="btn login-btn">Login</a></li>
+        <li><a href="{{ url_for('register') }}" class="btn register-btn">Register</a></li>
+      {% endif %}
+    </ul>
   </div>
 </nav>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("open");
+  }
+</script>
+
+<style>
+  /* Base navbar */
+  .navbar {
+    background: #fff;
+    padding: 0.75rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 9999;
+  }
+
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .menu-items {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-items a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+
+  .menu-items a:hover {
+    color: #2563eb;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+  }
+
+  .login-btn { background: #28a745; }
+  .register-btn { background: #007bff; }
+  .dashboard-btn { background: #28a745; }
+  .logout-btn { background: #dc3545; }
+
+  .auth-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mobile-menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    display: none;
+    z-index: 10001;
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 70%;
+    max-width: 280px;
+    background: #fff;
+    box-shadow: 3px 0 8px rgba(0,0,0,0.2);
+    padding: 1.5rem 1rem;
+    z-index: 10000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+
+  .mobile-menu-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+
+  .close-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+  }
+
+  .how-it-works h2 {
+    margin-top: -30px;
+    margin-bottom: 20px;
+  }
+
+  .mobile-menu-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mobile-menu-items a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* Responsive behavior */
+  @media (max-width: 768px) {
+    .menu-items,
+    .auth-actions a:not(.mobile-menu-toggle),
+    .auth-actions span {
+      display: none !important;
+    }
+
+    .mobile-menu-toggle {
+      display: block !important;
+    }
+  }
+
+@media (max-width: 768px) {
+  /* Hero Section */
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .hero-image img {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    position: static !important;
+    left: 0 !important;
+  }
+
+  .cta-btn {
+    width: 80%;
+    max-width: 300px;
+    padding: 0.75rem 0;
+    margin: 1rem auto 0;
+    text-align: center;
+  }
+
+  .how-steps {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 2rem; /* spacing below heading */
+    margin-bottom: 3rem;
+  }
+
+  .step {
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .step img {
+    width: 60px;
+    height: 60px;
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .how-it-works h2 {
+    position: relative;
+    top: -5rem; /* adjust this value until it looks right */
+  }
+}
+</style>
 
   <!-- HERO SECTION -->
   <section class="hero" style="color: #2563eb;">
@@ -405,9 +764,36 @@
       <input type="email" id="email" name="email" required>
       <label for="message">Message</label>
       <textarea id="message" name="message" rows="5" required></textarea>
-      <button type="submit" style="margin-left: 320px; scale: 1.2;">Send Message</button>
+      <button type="submit" class="contact-message-button">Send Message</button>
     </form>
   </section>
+  <style>
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* spacing between fields */
+  align-items: stretch; /* inputs take full width */
+}
+
+.contact-form button.contact-message-button {
+  align-self: center; /* only button is centered */
+  scale: 1.2;
+  max-width: 300px; /* optional limit */
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .contact-form button.contact-message-button {
+    width: 100%; /* full width on mobile */
+    scale: 1;
+    margin-left: 10px;
+  }
+}
+
+
+
+
+  </style>
 
 {% include 'footer.html' %}
 </body>
