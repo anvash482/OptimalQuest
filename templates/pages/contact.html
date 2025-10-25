@@ -8,13 +8,67 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f4f8fb;
-      margin: 0;
-      padding: 0;
-      color: #333;
+    html {
+      zoom: 0.95;
+      /* Keeps Safari and Chrome consistent */
+      -webkit-text-size-adjust: 100%;
+      /* Prevents Chrome from auto-scaling text */
     }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    @supports (-webkit-touch-callout: none) {
+      html {
+        zoom: 1;
+        /* Safari fix to avoid double scaling */
+      }
+    }
+    /* --- MacBook-specific adjustments --- */
+/* --- MacBook-specific visual scaling fix --- */
+
+/* Safari on macOS */
+@supports (-webkit-touch-callout: none) {
+  /* Shrink "Welcome, ___" text */
+  .auth-actions span {
+    font-size: 0.85rem !important;
+  }
+
+  /* Scale down Dashboard/Logout buttons */
+  .auth-actions .dashboard-btn,
+  .auth-actions .logout-btn {
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+
+  /* Scale down main menu items (Home, Courses, Careers, About, Contact) */
+  .menu-items a {
+    transform: scale(0.9);
+    transform-origin: center;
+    display: inline-block;
+  }
+}
+
+/* Chrome on macOS */
+@supports (-webkit-appearance:none) and (not (-webkit-touch-callout:none)) {
+  .auth-actions span {
+    font-size: 0.85rem !important;
+  }
+
+  .auth-actions .dashboard-btn,
+  .auth-actions .logout-btn {
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+
+  .menu-items a {
+    transform: scale(0.9);
+    transform-origin: center;
+    display: inline-block;
+  }
+}
 
     header {
       background: #2563eb;
@@ -73,31 +127,44 @@
       text-decoration:none !important; 
       font-size:16px !important;
       color:#fff !important;
-      font-weight:700 !important;
     }
+
     .login-btn { background:#28a745 !important; }
     .register-btn { background:#007bff !important; }
     .dashboard-btn { background:#28a745 !important; }
     .logout-btn { background:#dc3545 !important; }
-
-    /* Mobile menu toggle */
-    .mobile-menu-toggle {
-      font-size: 24px;
-      cursor: pointer;
-      color: #333;
-      display: none;
+    .btn {
+    font-weight: 700 !important;
     }
+    /* Center Login/Register buttons in mobile menu */
+.mobile-menu-items .login-btn,
+.mobile-menu-items .register-btn,
+.mobile-menu-items .dashboard-btn,
+.mobile-menu-items .logout-btn {
+  width: auto;             
+  margin: 0.2rem auto;    
+  justify-content: center;  
+}
 
-    @media (max-width: 768px) {
-      .menu-items,
-      .navbar .btn {
-        display: none !important;
-      }
-      .mobile-menu-toggle {
-        display: block !important;
-      }
-    }
+@media (max-width: 768px) {
+  .menu-items {
+    display: none !important; 
+  }
 
+  .auth-actions > a,
+  .auth-actions > span {
+    display: none !important; 
+  }
+
+  .mobile-menu-toggle {
+    display: block !important; 
+  }
+
+  /* Show mobile menu items only when open */
+  .mobile-menu-items a {
+    display: block !important;
+  }
+}
     /* Hero Section */
     .hero {
       display: flex;
@@ -205,6 +272,44 @@
       background: #1e40af;
     }
 
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 2.4rem; }
+      .hero p { font-size: 1rem; }
+    }
+
+    /* Mobile Navbar adjustments */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: row;       /* keep logo + hamburger on same row */
+    align-items: center;       /* vertically center everything */
+    justify-content: space-between; /* logo left, hamburger right */
+    padding: 0.5rem 1rem;     /* reduce padding for mobile */
+  }
+
+  .logo {
+    height: 40px;             /* adjust logo height */
+    margin: 0;                /* remove extra margin */
+  }
+
+  .mobile-menu-toggle {
+    display: block !important;
+    font-size: 28px;          /* slightly bigger for touch */
+    cursor: pointer;
+    color: #333;
+  }
+
+  /* Make mobile menu slide from left */
+  .mobile-menu {
+    width: 70%;
+    max-width: 280px;
+    transform: translateX(-100%);
+  }
+
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+}
     /* Mobile Contact Form */
     @media (max-width: 768px) {
       .contact-form input,
@@ -218,6 +323,18 @@
         padding: 0.6rem 1rem;
         scale: 1;
       }
+
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .contact-form button { width: 100%; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 4rem 1rem 3rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .why-optimalquest h2 { font-size: 1.8rem; }
+      .why-card h3 { font-size: 1.2rem; }
+      .contact-section { padding: 3rem 1rem; }
     }
 
         body {
@@ -315,10 +432,12 @@
     display: none !important; 
   }
 
-  .auth-actions > a,
-  .auth-actions > span {
-    display: none !important; 
-  }
+.auth-actions > a,
+.auth-actions > span {
+    display: flex !important; /* force flex display on desktop */
+    align-items: center;
+    gap: 8px;
+}
 
   .mobile-menu-toggle {
     display: block !important; 
@@ -789,12 +908,9 @@
     margin-left: 10px;
   }
 }
-
-
-
-
   </style>
 
 {% include 'footer.html' %}
 </body>
 </html>
+
